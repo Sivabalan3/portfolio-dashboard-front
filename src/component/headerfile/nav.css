@@ -1,0 +1,16 @@
+.active{
+  color: #38bdf8;
+}
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #38bdf8;
+  transform-origin: 0%;
+
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
