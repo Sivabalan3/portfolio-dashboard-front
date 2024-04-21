@@ -2,8 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Transition from "../utils/Transition";
 import { useDispatch, useSelector } from "react-redux";
-import Axios from "axios";
-import UserAvatar from "../images/user-avatar-32.png";
+import { RiLogoutCircleLine } from "react-icons/ri";
 import { logout } from "../store/features/authSlice";
 import { logoutUser } from "../store/api/userApiSlice";
 
@@ -106,28 +105,21 @@ function DropdownProfile({ align }) {
           <div className="pt-0.5 pb-2 px-3 mb-1 border-b border-slate-200 dark:border-slate-700">
             <div className="font-medium text-slate-800 dark:text-slate-100">
               {" "}
-              {userInfo.username.charAt(0).toUpperCase()}
+              {userInfo.username.toUpperCase()}
             </div>
             <div className="text-xs text-slate-500 dark:text-slate-400 italic">
-              Administrator
+             {userInfo.isAdmin?"Administrator":"User"} 
             </div>
           </div>
           <ul>
-            <li>
-              <Link
-                className="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3"
-                to="/settings"
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-              >
-                Settings
-              </Link>
-            </li>
+        
             <li>
               <button
                 className="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3"
                 type="button"
                 onClick={logouthandler}
               >
+                <RiLogoutCircleLine className="dark:text-white me-2 w-4 h-4"/>
                 Sign Out
               </button>
             </li>

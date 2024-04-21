@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import lottie from "lottie-web";
+import panda from './videos/error.json'
 
 function PageNotfound() {
     const container = useRef(null);
@@ -10,7 +11,7 @@ function PageNotfound() {
             renderer: 'svg',
             loop: true,
             autoplay: true,
-            animationData: require('../videos/error.json'),
+            animationData: panda,
         }) 
     }, []);
     useEffect(() => {

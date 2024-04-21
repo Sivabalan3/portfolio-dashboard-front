@@ -8,7 +8,7 @@ import { BASE_URL } from "../store/constant";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { Dropdown, Button, Result, Skeleton } from "antd";
 
-function Project() {
+function AdminProjectCard() {
   const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.auth);
   const {
@@ -79,27 +79,10 @@ function Project() {
   return (
     <>
       <section className="text-gray-600 body-font dark:bg-gray-900 bg-white pt-6 duration-300 md-mt-32">
-        <h1 className="text-2xl sm:text-4xl text-sky-400 text-center py-11 pr-6 font-extrabold underline underline-offset-2  decoration-slate-300  tracking-widest">
-          My Projects
-        </h1>
-        {/* <div classNameNameName="py-20">
-        {projects.map((project) => {
-  console.log("project id",project.id);  // Log the id of each project
-  return (
-    <div key={project._id}>
-      <h2>{project.name}</h2>
-      <p>{project.description}</p>
-      <Link to={`/project/${project._id}`}>View Details</Link>
-    </div>
-  );
-})}
-
-        </div> */}
-
         <div className="mx-auto grid max-w-screen-xl grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
             <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              
+             
               <Link to={`/project/${project._id}`}>
                 <img
                   className="p-8 rounded-t-lg"
@@ -185,4 +168,4 @@ function Project() {
   );
 }
 
-export default Project;
+export default AdminProjectCard;

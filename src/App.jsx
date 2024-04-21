@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -29,7 +29,7 @@ const Registerform = lazy(() => import("./component/Registerform"));
 const ProjectCreateform = lazy(() => import("./component/ProjectCreateform"));
 const Status = lazy(() => import("./component/Status"));
 const AdminEdit = lazy(() => import("./component/AdminEdit"));
-const ProjectCreateCard = lazy(() => import("./component/Project"));
+const AdminProjectCard = lazy(() => import("./component/AdminProjectCard"));
 const ProjectDetailsTab = lazy(() => import("./component/ProjectDetailsTab"));
 const ProjectUpdateForm = lazy(() => import("./component/ProjectUpdateForm"));
 function App() {
@@ -47,7 +47,7 @@ function App() {
   }, []);
   return (
     <>
-      {userInfo && userInfo.isAdmin ?(""):(<Headers />)}
+      {userInfo && userInfo.isAdmin ? "" : <Headers />}
       <Suspense
         fallback={
           <div className="flex justify-center items-center w-full h-screen  bg-slate-900">
@@ -82,17 +82,20 @@ function App() {
               // Add more child routes here
             </Route>
 
-          <Route path="/pnf" element={<Pagenotfound />} /> */}
+          */}
           <Route path="/userform" element={<Userform />} />
 
           <Route path="/Admindashboard" element={<Dashboard />}>
-            <Route path="project-create-card" element={<ProjectCreateCard />} />
+            <Route path="project/:id" element={<ProjectDetailsTab />} />
+            <Route path="Admin-edit-table" element={<AdminEdit />} />            
+            <Route path="project-card" element={<AdminProjectCard />} />
             <Route path="project/update/:id" element={<ProjectUpdateForm />} />
             <Route path="project-create" element={<ProjectCreateform />} />
           </Route>
+          <Route path="*" element={<Pagenotfound />} />
         </Routes>
       </Suspense>
-      {userInfo && userInfo.isAdmin ?(""):(<Foter />)}
+      {userInfo && userInfo.isAdmin ? "" : <Foter />}
     </>
   );
 }

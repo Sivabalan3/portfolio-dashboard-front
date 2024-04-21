@@ -1,14 +1,24 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import LineChart from '../../charts/LineChart01';
-import Icon from '../../images/icon-01.svg';
 import EditMenu from '../../components/DropdownEditMenu';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { FaUsersLine } from "react-icons/fa6";
+import { getUserandAdminCount } from '../../store/projectstores/projectSlice';
 // Import utilities
 import { tailwindConfig, hexToRGB } from '../../utils/Utils';
 
 function DashboardCard01() {
+  const dispatch = useDispatch();
+  const {
+    data: UserandAdminCount,
+    loading,
+    error,
+  } = useSelector((state) => state.projects.getUserandAdminCount);
 
+  useEffect(() => {
+    dispatch(getUserandAdminCount());
+  }, [dispatch]);
   const chartData = {
     labels: [
       '12-01-2020',
@@ -77,7 +87,7 @@ function DashboardCard01() {
       <div className="px-5 pt-5">
         <header className="flex justify-between items-start mb-2">
           {/* Icon */}
-          <img src={Icon} width="32" height="32" alt="Icon 01" />
+          <FaUsersLine className='w-12 h-12 dark:text-white'/>
           {/* Menu button */}
           <EditMenu align="right" className="relative inline-flex">
             <li>
@@ -97,10 +107,10 @@ function DashboardCard01() {
             </li>
           </EditMenu>
         </header>
-        <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2">Acme Plus</h2>
-        <div className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase mb-1">Sales</div>
+        <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2">User and Admin Count ' S</h2>
+        <div className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase mb-1">Num of</div>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">$24,780</div>
+          <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{UserandAdminCount.totalEmails}</div>
           <div className="text-sm font-semibold text-white px-1.5 bg-emerald-500 rounded-full">+49%</div>
         </div>
       </div>
