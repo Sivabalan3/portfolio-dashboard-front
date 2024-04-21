@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { FaGithub } from "react-icons/fa6";
+import { notification } from 'antd';
 import SidebarLinkGroup from "./SidebarLinkGroup";
 
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
   const location = useLocation();
   const { pathname } = location;
-
+  const { userInfo } = useSelector((state) => state.auth);
   const trigger = useRef(null);
   const sidebar = useRef(null);
 
@@ -248,6 +250,15 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                                   ? "text-indigo-500"
                                   : "text-slate-400 hover:text-slate-200")
                               }
+                              onClick={(e) => {
+                                if (!userInfo.isAdmin) {
+                                  e.preventDefault();
+                                  notification.error({
+                                    message: 'Access Denied',
+                                    description: 'You do not have permission to access this page.',
+                                  });
+                                }
+                              }}     
                             >
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                                 Project Create
@@ -264,6 +275,15 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                                   ? "text-indigo-500"
                                   : "text-slate-400 hover:text-slate-200")
                               }
+                              onClick={(e) => {
+                                if (!userInfo.isAdmin) {
+                                  e.preventDefault();
+                                  notification.error({
+                                    message: 'Access Denied',
+                                    description: 'You do not have permission to access this page.',
+                                  });
+                                }
+                              }}
                             >
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                                 Project

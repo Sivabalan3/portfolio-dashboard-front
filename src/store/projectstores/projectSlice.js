@@ -112,8 +112,7 @@ export const deleteProject = createAsyncThunk(
 }});
 
 export const createReview = createAsyncThunk('projects/createReview', async (data) => {
-  const response = await axios.post(`${PROJECT_URL}/${data.projectId}/reviews`, data);
-  
+  const response = await axios.post(`${BASE_URL}${PROJECT_URL}/${data.projectId}/reviews`, data);
   return response.data;
 });
 
@@ -151,6 +150,7 @@ const projectsSlice = createSlice({
     getProjects: { data: [], loading: false, error: null },
     updateProject: { data: [], loading: 'idle', error: null },
     getUserandAdminCount:{ data: [], loading: 'idle', error: null },
+    createReview:{data:[],loading:'idle',error:null}
     // ... Repeat for all other async actions ...
   },
   reducers: {},
@@ -204,6 +204,19 @@ const projectsSlice = createSlice({
     state.getUserandAdminCount.loading = 'failed';
     state.getUserandAdminCount.error = action.error.message;
   });
+
+  // POST CREATE REVIEW 
+  builder.addCase(createReview.pending, (state) => {
+    state.createReview.loading = 'loading';
+  });
+  builder.addCase(createReview.fulfilled, (state, action) => {
+    state.createReview.loading = 'succeeded';
+    state.createReview.data=action.payload;
+  });
+  builder.addCase(createReview.rejected, (state, action) => {
+    state.createReview.loading = 'failed';
+    state.createReview.error = action.error.message;
+  });
     // ... Repeat for all other async actions ...
 
 
@@ -220,9 +233,6 @@ const projectsSlice = createSlice({
     });
     
     builder.addCase(deleteProject.fulfilled, (state, action) => {
-      // handle the state update when the promise is fulfilled
-    });
-    builder.addCase(createReview.fulfilled, (state, action) => {
       // handle the state update when the promise is fulfilled
     });
     builder.addCase(uploadProjectImage.fulfilled, (state, action) => {

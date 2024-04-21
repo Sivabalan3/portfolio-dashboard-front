@@ -5,17 +5,9 @@ import {
   uploadProjectImage,
   createProject,
 } from "../store/projectstores/projectSlice";
+import { useNavigate } from "react-router-dom";
 function ProjectCreatehtmlForm() {
-  // const {
-  //   name,
-  //   subtitle,
-  //   language,
-  //   startdate,
-  //   enddate,
-  //   description,
-  //   livesite,
-  //   githuburl,
-  // } = req.fields;
+  const navigate=useNavigate()
   const [image, setImage] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -49,7 +41,7 @@ function ProjectCreatehtmlForm() {
       if (data.error) {
         console.log("error");
       } else {
-        // navigate("/");
+        navigate('/Admindashboard/project-card');
         console.log("else");
       }
       

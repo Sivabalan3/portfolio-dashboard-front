@@ -9,13 +9,14 @@ import Datepicker from "../components/Datepicker";
 import DashboardCard01 from "../partials/dashboard/DashboardCard01";
 import DashboardCard02 from "../partials/dashboard/DashboardCard02";
 import DashboardCard03 from "../partials/dashboard/DashboardCard03";
-
+import { notification } from 'antd';
 import Banner from "../partials/Banner";
+import { useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
 
 function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
+  const { userInfo } = useSelector((state) => state.auth);
   return (
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar */}
@@ -46,6 +47,15 @@ function Dashboard() {
                 <Link
                   to="project-create"
                   className="btn bg-indigo-500 hover:bg-indigo-600 text-white"
+                  onClick={(e) => {
+                    if (!userInfo.isAdmin) {
+                      e.preventDefault();
+                      notification.error({
+                        message: 'Access Denied',
+                        description: 'You do not have permission to access this page.',
+                      });
+                    }
+                  }}
                 >
                   <svg
                     className="w-4 h-4 fill-current opacity-50 shrink-0"

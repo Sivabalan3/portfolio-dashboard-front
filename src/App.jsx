@@ -27,7 +27,6 @@ const Userform = lazy(() => import("./component/Userform"));
 const Foterpage = lazy(() => import("./headerfile/Foterpage"));
 const Registerform = lazy(() => import("./component/Registerform"));
 const ProjectCreateform = lazy(() => import("./component/ProjectCreateform"));
-const Status = lazy(() => import("./component/Status"));
 const AdminEdit = lazy(() => import("./component/AdminEdit"));
 const AdminProjectCard = lazy(() => import("./component/AdminProjectCard"));
 const ProjectDetailsTab = lazy(() => import("./component/ProjectDetailsTab"));
@@ -47,7 +46,7 @@ function App() {
   }, []);
   return (
     <>
-      {userInfo && userInfo.isAdmin ? "" : <Headers />}
+      {userInfo ? "" : <Headers />}
       <Suspense
         fallback={
           <div className="flex justify-center items-center w-full h-screen  bg-slate-900">
@@ -67,9 +66,9 @@ function App() {
           <Route path="/skils" element={<Skils />} />
           <Route path="/loginpage" element={<Login />} />
           <Route path="/project/:id" element={<ProjectDetailsTab />} />
-          <Route path="project/update/:id" element={<ProjectUpdateForm />} />
+          {/* <Route path="project/update/:id" element={<ProjectUpdateForm />} /> */}
           <Route path="project-create" element={<ProjectCreateform />} />
-          {/* <Route path="/register" element={<Registerform />} /> */}
+          <Route path="/register" element={<Registerform />} />
 
           {/* Outlet components */}
 
@@ -86,16 +85,16 @@ function App() {
           <Route path="/userform" element={<Userform />} />
 
           <Route path="/Admindashboard" element={<Dashboard />}>
-            <Route path="project/:id" element={<ProjectDetailsTab />} />
             <Route path="Admin-edit-table" element={<AdminEdit />} />            
             <Route path="project-card" element={<AdminProjectCard />} />
-            <Route path="project/update/:id" element={<ProjectUpdateForm />} />
+            <Route path="project-card/project/:id" element={<ProjectDetailsTab />} />
+            <Route path="project-card/project/:id/project/update/:id" element={<ProjectUpdateForm />} />
             <Route path="project-create" element={<ProjectCreateform />} />
           </Route>
           <Route path="*" element={<Pagenotfound />} />
         </Routes>
       </Suspense>
-      {userInfo && userInfo.isAdmin ? "" : <Foter />}
+      {userInfo  ? "" : <Foter />}
     </>
   );
 }
