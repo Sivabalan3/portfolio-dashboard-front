@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useState,useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import LineChart from '../../charts/LineChart01';
 import EditMenu from '../../components/DropdownEditMenu';
@@ -7,18 +7,30 @@ import { FaUsersLine } from "react-icons/fa6";
 import { getUserandAdminCount } from '../../store/projectstores/projectSlice';
 // Import utilities
 import { tailwindConfig, hexToRGB } from '../../utils/Utils';
+import Loader from '../../component/Loder'
 
 function DashboardCard01() {
   const dispatch = useDispatch();
   const {
     data: UserandAdminCount,
-    loading,
+    loading:loadingFromRedux,
     error,
   } = useSelector((state) => state.projects.getUserandAdminCount);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     dispatch(getUserandAdminCount());
   }, [dispatch]);
+  useEffect(() => {
+    if (loadingFromRedux) {
+      const timer = setTimeout(() => {
+        setLoading(true);
+      }, 2000);
+      return () => clearTimeout(timer);
+    } else {
+      setLoading(false);
+    }
+  }, [loadingFromRedux]);
   const chartData = {
     labels: [
       '12-01-2020',
@@ -87,7 +99,7 @@ function DashboardCard01() {
       <div className="px-5 pt-5">
         <header className="flex justify-between items-start mb-2">
           {/* Icon */}
-          <FaUsersLine className='w-12 h-12 dark:text-white'/>
+          <FaUsersLine className='w-12 h-12 dark:text-white text-purple-500'/>
           {/* Menu button */}
           <EditMenu align="right" className="relative inline-flex">
             <li>
@@ -109,8 +121,8 @@ function DashboardCard01() {
         </header>
         <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2">User and Admin Count ' S</h2>
         <div className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase mb-1">Num of</div>
-        <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{UserandAdminCount.totalEmails}</div>
+        <div className="flex items-start mt-4">
+          <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{loading?UserandAdminCount.totalEmails:(<Loader/>)}</div>
           <div className="text-sm font-semibold text-white px-1.5 bg-emerald-500 rounded-full">+49%</div>
         </div>
       </div>

@@ -20,18 +20,22 @@ import Foter from "./headerfile/Foterpage";
 const Aboutme = lazy(() => import("./component/Aboutme"));
 const Login = lazy(() => import("./component/Loginform"));
 const Skils = lazy(() => import("./component/Skils"));
+// const OrderTable = lazy(() => import("./component/OrderTable"));
 
 const Pagenotfound = lazy(() => import("./component/Pagenotfound"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Userform = lazy(() => import("./component/Userform"));
-const Foterpage = lazy(() => import("./headerfile/Foterpage"));
+const Profile = lazy(() => import("./component/Profile"));
+
 const Registerform = lazy(() => import("./component/Registerform"));
 const ProjectCreateform = lazy(() => import("./component/ProjectCreateform"));
-const AdminEdit = lazy(() => import("./component/AdminEdit"));
+const AdminEdit = lazy(() => import("./component/AdminEditTable"));
 const AdminProjectCard = lazy(() => import("./component/AdminProjectCard"));
 const ProjectDetailsTab = lazy(() => import("./component/ProjectDetailsTab"));
 const ProjectUpdateForm = lazy(() => import("./component/ProjectUpdateForm"));
+
 function App() {
+
   const location = useLocation();
   const { userInfo } = useSelector((state) => state.auth);
   useEffect(() => {
@@ -86,6 +90,8 @@ function App() {
 
           <Route path="/Admindashboard" element={<Dashboard />}>
             <Route path="Admin-edit-table" element={<AdminEdit />} />            
+            {/* <Route path="order-table" element={<OrderTable />} />             */}
+            <Route path="profile" element={<Profile />} />            
             <Route path="project-card" element={<AdminProjectCard />} />
             <Route path="project-card/project/:id" element={<ProjectDetailsTab />} />
             <Route path="project-card/project/:id/project/update/:id" element={<ProjectUpdateForm />} />

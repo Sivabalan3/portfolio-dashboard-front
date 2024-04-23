@@ -150,7 +150,7 @@ const projectsSlice = createSlice({
     getProjects: { data: [], loading: false, error: null },
     updateProject: { data: [], loading: 'idle', error: null },
     getUserandAdminCount:{ data: [], loading: 'idle', error: null },
-    createReview:{data:[],loading:'idle',error:null}
+    createReview:{data:[],loading:'idle',error:null},
     // ... Repeat for all other async actions ...
   },
   reducers: {},
@@ -217,6 +217,8 @@ const projectsSlice = createSlice({
     state.createReview.loading = 'failed';
     state.createReview.error = action.error.message;
   });
+
+  
     // ... Repeat for all other async actions ...
 
 
