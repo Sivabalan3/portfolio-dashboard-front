@@ -27,7 +27,7 @@ function Loginform() {
   const onSubmit = async (values, action) => {
     try {
       const res = await dispatch(
-        loginUser({ email: values.email, password: values.password })
+        loginUser({ email: values.email, password: values.password },)
       ).unwrap();
       console.log(res);
       dispatch(setCredentials({ ...res }));

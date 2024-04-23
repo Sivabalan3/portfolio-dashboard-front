@@ -22,8 +22,8 @@ export const getProjectDetails = createAsyncThunk('projects/getProjectDetails', 
   return response.data;
 });
 
-export const allProjects = createAsyncThunk('projects/allProjects', async () => {
-  const response = await axios.get(`${PROJECT_URL}/allProjects`);
+export const getUserandAdminCount = createAsyncThunk('users/getUserandAdminCount', async () => {
+  const response = await axios.get(`${BASE_URL}/api/users/total-emails`);
   return response.data;
 });
 
@@ -112,8 +112,7 @@ export const deleteProject = createAsyncThunk(
 }});
 
 export const createReview = createAsyncThunk('projects/createReview', async (data) => {
-  const response = await axios.post(`${PROJECT_URL}/${data.projectId}/reviews`, data);
-  
+  const response = await axios.post(`${BASE_URL}${PROJECT_URL}/${data.projectId}/reviews`, data);
   return response.data;
 });
 
@@ -150,6 +149,8 @@ const projectsSlice = createSlice({
     getProjectById: { data: null, loading: false, error: null },
     getProjects: { data: [], loading: false, error: null },
     updateProject: { data: [], loading: 'idle', error: null },
+    getUserandAdminCount:{ data: [], loading: 'idle', error: null },
+    createReview:{data:[],loading:'idle',error:null},
     // ... Repeat for all other async actions ...
   },
   reducers: {},
@@ -190,6 +191,34 @@ const projectsSlice = createSlice({
     state.updateProject.loading = 'failed';
     state.updateProject.error = action.error.message;
   });
+
+  //GET USER AND ADMIN COUNT
+  builder.addCase(getUserandAdminCount.pending, (state) => {
+    state.getUserandAdminCount.loading = 'loading';
+  })
+  builder.addCase(getUserandAdminCount.fulfilled, (state, action) => {
+    state.getUserandAdminCount.loading = 'succeeded';
+    state.getUserandAdminCount.data = action.payload;
+  })
+  builder.addCase(getUserandAdminCount.rejected, (state, action) => {
+    state.getUserandAdminCount.loading = 'failed';
+    state.getUserandAdminCount.error = action.error.message;
+  });
+
+  // POST CREATE REVIEW 
+  builder.addCase(createReview.pending, (state) => {
+    state.createReview.loading = 'loading';
+  });
+  builder.addCase(createReview.fulfilled, (state, action) => {
+    state.createReview.loading = 'succeeded';
+    state.createReview.data=action.payload;
+  });
+  builder.addCase(createReview.rejected, (state, action) => {
+    state.createReview.loading = 'failed';
+    state.createReview.error = action.error.message;
+  });
+
+  
     // ... Repeat for all other async actions ...
 
 
@@ -200,17 +229,12 @@ const projectsSlice = createSlice({
     builder.addCase(getProjectDetails.fulfilled, (state, action) => {
       // handle the state update when the promise is fulfilled
     });
-    builder.addCase(allProjects.fulfilled, (state, action) => {
-      // handle the state update when the promise is fulfilled
-    });
+ 
     builder.addCase(createProject.fulfilled, (state, action) => {
       // handle the state update when the promise is fulfilled
     });
     
     builder.addCase(deleteProject.fulfilled, (state, action) => {
-      // handle the state update when the promise is fulfilled
-    });
-    builder.addCase(createReview.fulfilled, (state, action) => {
       // handle the state update when the promise is fulfilled
     });
     builder.addCase(uploadProjectImage.fulfilled, (state, action) => {

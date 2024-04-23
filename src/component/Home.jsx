@@ -307,7 +307,7 @@ function Home() {
               </p>
             </div>
 
-            <div className="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0 ">
+            <div className="mx-auto grid max-w-screen-xl grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-3 ">
               {card.map((cards) => (
                 <div
                   data-aos={cards.Anime}

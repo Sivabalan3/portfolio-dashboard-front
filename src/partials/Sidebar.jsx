@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-
+import { useSelector } from "react-redux";
+import { FaGithub } from "react-icons/fa6";
+import { notification } from 'antd';
 import SidebarLinkGroup from "./SidebarLinkGroup";
+import { CgProfile } from "react-icons/cg";
 
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
   const location = useLocation();
   const { pathname } = location;
-
+  const { userInfo } = useSelector((state) => state.auth);
   const trigger = useRef(null);
   const sidebar = useRef(null);
 
@@ -241,13 +244,22 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                           <li className="mb-1 last:mb-0">
                             <NavLink
                               end
-                              to="/Admindashboard/project-create"
+                              to="project-create"
                               className={({ isActive }) =>
                                 "block transition duration-150 truncate " +
                                 (isActive
                                   ? "text-indigo-500"
                                   : "text-slate-400 hover:text-slate-200")
                               }
+                              onClick={(e) => {
+                                if (!userInfo.isAdmin) {
+                                  e.preventDefault();
+                                  notification.error({
+                                    message: 'Access Denied',
+                                    description: 'You do not have permission to access this page.',
+                                  });
+                                }
+                              }}     
                             >
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                                 Project Create
@@ -257,13 +269,22 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                           <li className="mb-1 last:mb-0">
                             <NavLink
                               end
-                              to="project-create-card"
+                              to="project-card"
                               className={({ isActive }) =>
                                 "block transition duration-150 truncate " +
                                 (isActive
                                   ? "text-indigo-500"
                                   : "text-slate-400 hover:text-slate-200")
                               }
+                              onClick={(e) => {
+                                if (!userInfo.isAdmin) {
+                                  e.preventDefault();
+                                  notification.error({
+                                    message: 'Access Denied',
+                                    description: 'You do not have permission to access this page.',
+                                  });
+                                }
+                              }}
                             >
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                                 Project
@@ -350,7 +371,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                           <li className="mb-1 last:mb-0">
                             <NavLink
                               end
-                              to="/ecommerce/customers"
+                              to="Admin-edit-table"
                               className={({ isActive }) =>
                                 "block transition duration-150 truncate " +
                                 (isActive
@@ -366,7 +387,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                           <li className="mb-1 last:mb-0">
                             <NavLink
                               end
-                              to="/ecommerce/orders"
+                              to="order-table"
                               className={({ isActive }) =>
                                 "block transition duration-150 truncate " +
                                 (isActive
@@ -375,7 +396,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                               }
                             >
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                Orders
+                                Project Orders List
                               </span>
                             </NavLink>
                           </li>
@@ -849,7 +870,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               >
                 <NavLink
                   end
-                  to="/inbox"
+                  to="https://github.com/Sivabalan3"
                   className={`block text-slate-200 truncate transition duration-150 ${
                     pathname.includes("inbox")
                       ? "hover:text-slate-200"
@@ -857,26 +878,9 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                   }`}
                 >
                   <div className="flex items-center">
-                    <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                      <path
-                        className={`fill-current ${
-                          pathname.includes("inbox")
-                            ? "text-indigo-500"
-                            : "text-slate-600"
-                        }`}
-                        d="M16 13v4H8v-4H0l3-9h18l3 9h-8Z"
-                      />
-                      <path
-                        className={`fill-current ${
-                          pathname.includes("inbox")
-                            ? "text-indigo-300"
-                            : "text-slate-400"
-                        }`}
-                        d="m23.72 12 .229.686A.984.984 0 0 1 24 13v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1v-8c0-.107.017-.213.051-.314L.28 12H8v4h8v-4H23.72ZM13 0v7h3l-4 5-4-5h3V0h2Z"
-                      />
-                    </svg>
+                  <FaGithub className="w-6 h-6" />
                     <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                      Inbox
+                      Github
                     </span>
                   </div>
                 </NavLink>
@@ -889,34 +893,22 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               >
                 <NavLink
                   end
-                  to="/calendar"
+                  to="profile"
                   className={`block text-slate-200 truncate transition duration-150 ${
                     pathname.includes("calendar")
                       ? "hover:text-slate-200"
-                      : "hover:text-white"
+                      : "text-white"
                   }`}
                 >
                   <div className="flex items-center">
-                    <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                      <path
-                        className={`fill-current ${
-                          pathname.includes("calendar")
+                  <CgProfile className={`fill-current w-5 h-5 ${
+                          pathname.includes("profile")
                             ? "text-indigo-500"
-                            : "text-slate-600"
-                        }`}
-                        d="M1 3h22v20H1z"
-                      />
-                      <path
-                        className={`fill-current ${
-                          pathname.includes("calendar")
-                            ? "text-indigo-300"
-                            : "text-slate-400"
-                        }`}
-                        d="M21 3h2v4H1V3h2V1h4v2h10V1h4v2Z"
-                      />
-                    </svg>
+                            : "text-white"
+                        }`}/>
+                   
                     <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                      Profile
+                    Profile
                     </span>
                   </div>
                 </NavLink>
