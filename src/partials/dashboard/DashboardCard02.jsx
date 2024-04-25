@@ -1,14 +1,32 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import LineChart from '../../charts/LineChart01';
-import Icon from '../../images/icon-02.svg';
+import { useDispatch,useSelector } from 'react-redux';
 import EditMenu from '../../components/DropdownEditMenu';
-
+import Loader from '../../component/Loder';
+import { FaUsersLine } from "react-icons/fa6";
+import { getProjectOrderUserCount } from '../../store/projectstores/projectSlice';
 // Import utilities
 import { tailwindConfig, hexToRGB } from '../../utils/Utils';
 
 function DashboardCard02() {
-
+const dispatch=useDispatch()
+const {
+  data: ProjectOrderUserCount,
+  loading:loadingfromRedux,
+  error,
+} = useSelector((state) => state.projects.getProjectOrderUserCount);
+const [loading, setLoading] = useState(false);
+useEffect(() => {
+  if (loadingfromRedux) {
+    const timer = setTimeout(() => {
+      setLoading(true);
+    }, 2000);
+    return () => clearTimeout(timer);
+  } else {
+    setLoading(false);
+  }
+}, [loadingfromRedux]);
   const chartData = {
     labels: [
       '12-01-2020', '01-01-2021', '02-01-2021',
@@ -64,13 +82,15 @@ function DashboardCard02() {
       },
     ],
   };
-
+  useEffect(() => {
+    dispatch(getProjectOrderUserCount());
+  }, [dispatch]);
   return (
     <div className="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
       <div className="px-5 pt-5">
         <header className="flex justify-between items-start mb-2">
           {/* Icon */}
-          <img src={Icon} width="32" height="32" alt="Icon 02" />
+          <FaUsersLine   className='w-12 h-12 dark:text-white text-sky-500'/>
           {/* Menu button */}
           <EditMenu align="right" className="relative inline-flex">
             <li>
@@ -90,10 +110,10 @@ function DashboardCard02() {
             </li>
           </EditMenu>
         </header>
-        <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2">Project Order ' S</h2>
-        <div className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase mb-1">Sales</div>
-        <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">$17,489</div>
+        <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2">Project Order User Count' S</h2>
+        <div className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase mb-1">Num Of</div>
+        <div className="flex items-start mt-8">
+          <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">{loading?ProjectOrderUserCount.totalOrderUser:(<Loader/>)}</div>
           <div className="text-sm font-semibold text-white px-1.5 bg-amber-500 rounded-full">-14%</div>
         </div>
       </div>

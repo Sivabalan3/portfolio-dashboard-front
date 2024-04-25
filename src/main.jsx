@@ -5,6 +5,7 @@ import ThemeProvider from './utils/ThemeContext';
 import App from './App';
 import "aos/dist/aos.css";
 import {Provider} from 'react-redux';
+import './index.css'
 import {store} from './store/store'; // replace with the path to your Redux store
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import LineChart from '../../charts/LineChart01';
 import EditMenu from '../../components/DropdownEditMenu';
 import { useDispatch, useSelector } from 'react-redux';
-import { FaUsersLine } from "react-icons/fa6";
+import { FaUserShield } from "react-icons/fa6";
 import { getUserandAdminCount } from '../../store/projectstores/projectSlice';
 // Import utilities
 import { tailwindConfig, hexToRGB } from '../../utils/Utils';
@@ -99,7 +99,7 @@ function DashboardCard01() {
       <div className="px-5 pt-5">
         <header className="flex justify-between items-start mb-2">
           {/* Icon */}
-          <FaUsersLine className='w-12 h-12 dark:text-white text-purple-500'/>
+          <FaUserShield className='w-12 h-12 dark:text-white text-purple-500'/>
           {/* Menu button */}
           <EditMenu align="right" className="relative inline-flex">
             <li>
