@@ -9,7 +9,7 @@ import Datepicker from "../components/Datepicker";
 import DashboardCard01 from "../partials/dashboard/DashboardCard01";
 import DashboardCard02 from "../partials/dashboard/DashboardCard02";
 import DashboardCard03 from "../partials/dashboard/DashboardCard03";
-import { notification } from 'antd';
+import { notification } from "antd";
 import Banner from "../partials/Banner";
 import { useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
@@ -51,8 +51,9 @@ function Dashboard() {
                     if (!userInfo.isAdmin) {
                       e.preventDefault();
                       notification.error({
-                        message: 'Access Denied',
-                        description: 'You do not have permission to access this page.',
+                        message: "Access Denied",
+                        description:
+                          "You do not have permission to access this page.",
                       });
                     }
                   }}

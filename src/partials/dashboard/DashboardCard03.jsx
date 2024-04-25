@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import LineChart from '../../charts/LineChart01';
 import Icon from '../../images/icon-03.svg';
 import EditMenu from '../../components/DropdownEditMenu';
+import { GoProjectRoadmap } from "react-icons/go";
 
 // Import utilities
 import { tailwindConfig, hexToRGB } from '../../utils/Utils';
@@ -70,7 +71,7 @@ function DashboardCard03() {
       <div className="px-5 pt-5">
         <header className="flex justify-between items-start mb-2">
           {/* Icon */}
-          <img src={Icon} width="32" height="32" alt="Icon 03" />
+          <GoProjectRoadmap className='w-12 h-12 dark:text-white  text-emerald-500'/>
           {/* Menu button */}
           <EditMenu align="right" className="relative inline-flex">
             <li>
@@ -90,11 +91,11 @@ function DashboardCard03() {
             </li>
           </EditMenu>
         </header>
-        <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2">Num Of User ' S </h2>
+        <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2">Num Of Project Order'S </h2>
         <div className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase mb-1">Sales</div>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">$9,962</div>
-          <div className="text-sm font-semibold text-white px-1.5 bg-emerald-500 rounded-full">+49%</div>
+          <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">33</div>
+          <div className="text-sm font-semibold text-white px-1.5 bg-emerald-500 rounded-full">+29%</div>
         </div>
       </div>
       {/* Chart built with Chart.js 3 */}
