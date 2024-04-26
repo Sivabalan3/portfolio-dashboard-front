@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { BASE_URL } from "../constant";
+import { BASE_URL, } from "../constant";
 import { notification } from "antd";
 import { data } from "autoprefixer";
 

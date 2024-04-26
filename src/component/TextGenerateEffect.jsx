@@ -35,12 +35,18 @@ export const TextGenerateEffect = ({ words, className }) => {
   };
 
   return (
-    <div className={" font-light text-gray-900 sm:text-xl dark:text-gray-400" + className}>
-      <div className="mt-4">
-        <div className="dark:text-white text-black  leading-snug tracking-wide">
-          {renderWords()}
+    <section>
+      <div
+        className={
+          " font-light text-gray-900 sm:text-xl dark:text-gray-400" + className
+        }
+      >
+        <div className="mt-4">
+          <div className="dark:text-white text-black  leading-snug tracking-wide">
+            {renderWords()}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

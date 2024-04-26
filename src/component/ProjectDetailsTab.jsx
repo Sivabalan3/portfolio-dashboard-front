@@ -24,8 +24,13 @@ function ProjectDetailsTab() {
   const project = projects.find((project) => project._id === id);
 
   const handleUpdateNavigate = () => {
-    navigate(`project/update/${project._id}`);
-    // dispatch(updateProject({ projectId: id}));
+    if(userInfo.isAdmin){
+
+      navigate(`project/update/${project._id}`);
+      // dispatch(updateProject({ projectId: id}));
+    }else{
+      navigate(`project/update/${project._id}`);
+    }
   };
   const handleDelete = (projectId) => {
     dispatch(deleteProject(id));
@@ -36,6 +41,7 @@ function ProjectDetailsTab() {
   
     try {
       await dispatch(createReview({
+        
         projectId: id, // replace with your actual project id
         rating: rating,
         comment: comment
@@ -98,7 +104,7 @@ function ProjectDetailsTab() {
                 </div>
               </div>
               <div className="md:flex-1 px-4">
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                <h2 className="text-2xl font-bold text-sky-500  mb-2">
                   Title : {project.name}
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">

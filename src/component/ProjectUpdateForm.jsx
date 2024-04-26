@@ -214,7 +214,7 @@ function ProjectUpdateForm() {
 
               <div className="col-span-6 sm:col-span-3">
                 <label
-                  for="livesite"
+                htmlFor="livesite"
                   className="text-sm font-medium text-gray-900 block mb-2"
                 >
                   LiveSite

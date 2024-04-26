@@ -1,10 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
-import {CheckIcon, UserIcon, EyeIcon, EyeSlashIcon,} from "@heroicons/react/24/outline";
+import {
+  CheckIcon,
+  UserIcon,
+  EyeIcon,
+  EyeSlashIcon,
+} from "@heroicons/react/24/outline";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { loginUser } from "../store/api/userApiSlice";
 import { setCredentials } from "../store/features/authSlice";
 import { useFormik } from "formik";
-import animationNetwork from './videos/network.json'
+import animationNetwork from "./videos/network.json";
 import { useSelector, useDispatch } from "react-redux";
 import { adminSchema } from "./schemas/index";
 import "./error.css";
@@ -18,7 +23,7 @@ function Loginform() {
   const { search } = useLocation();
   const sp = new URLSearchParams(search);
   const redirect = sp.get("redirect") || "/Admindashboard";
-  
+
   useEffect(() => {
     if (userInfo) {
       navigate(redirect);
@@ -27,14 +32,13 @@ function Loginform() {
   const onSubmit = async (values, action) => {
     try {
       const res = await dispatch(
-        loginUser({ email: values.email, password: values.password },)
+        loginUser({ email: values.email, password: values.password })
       ).unwrap();
       console.log(res);
       dispatch(setCredentials({ ...res }));
       navigate(redirect);
     } catch (err) {
       console.log(err);
-      
     }
   };
 
@@ -81,11 +85,8 @@ function Loginform() {
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 relative top-5 md:top-0 md:bottom-14 ">
             <div className="p-4 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
-                Admin Login Page
+              Login Page
               </h1>
-              <span className=" text-amber-400">Email : siva@gmail.com</span>
-              <br />
-              <span className=" text-amber-400">password : Siva@2005</span>
 
               <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                 <div>
