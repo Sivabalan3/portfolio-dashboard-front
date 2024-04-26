@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { Typewriter, Cursor } from "react-simple-typewriter";
 import {
   ChevronDoubleDownIcon,
@@ -9,12 +9,6 @@ import { FaArrowCircleDown } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Pagination, Autoplay, Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
-import "swiper";
 import Project from "./Project";
 import htmls from "../myimgs/swip/html.png";
 import css from "../myimgs/swip/css.png";
@@ -32,62 +26,21 @@ import reduxs from "../myimgs/swip/redux.png";
 import tailwindcss from "../myimgs/swip/tailwindcss.png";
 import metrialui from "../myimgs/swip/metrailui.png";
 import msoffice from "../myimgs/swip/msoffice.png";
+import token from "../myimgs/swip/token.png";
+import nextjs from "../myimgs/swip/next.png";
+
 import photoshop from "../myimgs/swip/photoshop.png";
-import Homeimg from '../myimgs/home.jpg'
+import Homeimg from "../myimgs/home.jpg";
+
 import { TextGenerateEffect } from "./TextGenerateEffect";
+import { InfiniteMovingCards } from "./InfiniteMovingCards";
+
 function Home() {
-  const navigate= useNavigate();
+  const navigate = useNavigate();
   useEffect(() => {
     if (localStorage.getItem("userInfo")) navigate("/Admindashboard");
   });
-  //TIME EVENTS
-  let time = new Date().toLocaleTimeString();
 
-  const [cutime, setcutime] = useState(time);
-  const UpdateTime = () => {
-    time = new Date().toLocaleTimeString();
-    setcutime(time);
-  };
-  setInterval(UpdateTime, 1000);
-
-  //DATES EVENTS
-  const dates = new Date();
-  const weekday = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  const day = weekday[dates.getDay().toLocaleString()];
-  const month = months[dates.getMonth().toLocaleString()];
-  const date = dates.getDate().toLocaleString();
-  const year = dates.getFullYear();
-  //ADD ZERO IN DATES
-  function addZero(t) {
-    var len = t.toString().length;
-    if (len <= 1) {
-      return "0" + t;
-    }
-
-    return t;
-  }
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -98,23 +51,25 @@ function Home() {
   }, []);
 
   const images = [
-    { img: htmls },
-    { img: css },
-    { img: jsons, cls: "dark:invert drop-shadow-2xl" },
-    { img: JavaScript },
-    { img: mongodb },
-    { img: expressjss },
-    { img: reacts },
-    { img: nodejss },
-    { img: docker },
-    { img: github, cls: "dark:invert drop-shadow-2xl" },
-    { img: reduxs },
-    { img: gits },
-    { img: bootstrab },
-    { img: tailwindcss },
-    { img: metrialui },
-    { img: photoshop },
-    { img: msoffice },
+    { img: htmls, name: "HTML - 5" },
+    { img: css, name: "CSS - 3" },
+    { img: jsons, cls: "dark:invert drop-shadow-2xl", name: "jSON" },
+    { img: JavaScript, name: "JAVASCRIPT" },
+    { img: mongodb, name: "MONGODB" },
+    { img: expressjss, name: "EXPRESS JS" },
+    { img: reacts, name: "REACT JS" },
+    { img: nodejss, name: "NODE JS" },
+    { img: docker, name: "DOCKER" },
+    { img: github, cls: "dark:invert drop-shadow-2xl", name: "GITHUB" },
+    { img: reduxs, name: "REDUX" },
+    { img: gits, name: "GIT" },
+    { img: bootstrab, name: "BOOTSTRAB" },
+    { img: tailwindcss, name: "TAILWIND CSS" },
+    { img: metrialui, name: "METRIAL UI" },
+    { img: photoshop, name: "PHOTOSHOP" },
+    { img: msoffice, name: "MS - OFFICE" },
+    { img: nextjs, name: "NEXT JS", cls: "dark:invert drop-shadow-2xl" },
+    { img: token, name: "JS WEBTOKEN", cls: "dark:invert drop-shadow-2xl" },
   ];
   const card = [
     {
@@ -195,20 +150,17 @@ function Home() {
                       typeSpeed={200}
                       deleteSpeed={150}
                       delaySpeed={100}
+                      cursor
                     ></Typewriter>
                   </h1>
                   <p className="text-white text-xl">
                     If you need to create a website fill the link below
                   </p>
 
-                  <button
-                    className="mt-4 inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700"
-                    buttonStyle="btn--outline"
-                    buttonSize="btn--large"
-                  >
+                  <button className="mt-4 inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700">
                     <Link
                       to="/userform"
-                      className=" relative inline-flex items-center justify-center md:p-4 md:px-6 md:py-1.5  overflow-hidden font-medium text-slate-200 transition duration-300 ease-out border-2 border-sky-500 rounded-full shadow-md group"
+                      className=" relative inline-flex items-center justify-center p-2 py-1 md:p-4 md:px-6 md:py-1.5  overflow-hidden font-medium text-slate-200 transition duration-300 ease-out border-2 border-sky-500 rounded-full shadow-md group"
                     >
                       <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-sky-500 group-hover:translate-x-0 ease">
                         <ChevronDoubleDownIcon className="w-6 h-6" />
@@ -303,13 +255,14 @@ function Home() {
                 Designed For Business Teams Like Yours
               </h2>
               <p className="mb-5 font-light text-gray-900 sm:text-xl dark:text-gray-400">
-                 <TextGenerateEffect words={words} /> 
+                <TextGenerateEffect words={words} />
               </p>
             </div>
 
             <div className="mx-auto grid max-w-screen-xl grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-3 ">
               {card.map((cards) => (
                 <div
+                  key={cards.title}
                   data-aos={cards.Anime}
                   data-aos-duration={cards.duration}
                   className={cards.cls}
@@ -378,33 +331,16 @@ function Home() {
             </div>
           </div>
           {/* SWIPER JS  */}
-          <div className="">
-            <h1 className="text-2xl sm:text-4xl text-sky-400 text-center py-6 pr-6 font-extrabold underline underline-offset-2  decoration-slate-300  tracking-widest">
-              My Skils
-            </h1>
-            <Swiper
-              slidesPerView={3}
-              spaceBetween={30}
-              freeMode={true}
-              loop={true}
-              autoplay={{
-                delay: 1500,
-                disableOnInteraction: false,
-              }}
-              navigation={true}
-              modules={[FreeMode, Pagination, Autoplay, Pagination, Navigation]}
-              className="mySwiper "
-            >
-              {images.map((item, index) => (
-                <SwiperSlide>
-                  <img
-                    src={item.img}
-                    alt="icons"
-                    className={`lg:w-3/4 lg-h-3/4   ${item.cls} `}
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
+
+          <h1 className="text-2xl sm:text-4xl text-sky-400 text-center py-6 pr-6 font-extrabold underline underline-offset-2  decoration-slate-300  tracking-widest">
+            My Skils
+          </h1>
+          <div className="rounded-md flex flex-col antialiased  dark:bg-grid-white/[0.05] items-center justify-center  overflow-hidden">
+            <InfiniteMovingCards
+              items={images}
+              direction="right"
+              speed="slow"
+            />
           </div>
         </section>
         <Project />

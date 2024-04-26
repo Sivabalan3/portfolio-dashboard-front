@@ -76,6 +76,13 @@ function Project() {
       />
     );
   }
+  const truncateDescription=(description, wordLimit)=> {
+    const words = description.split(' ');
+    if (words.length <= wordLimit) {
+      return description;
+    }
+    return words.slice(0, wordLimit).join(' ') + '...';
+  }
   return (
     <>
       <section className="text-gray-600 body-font dark:bg-gray-900 bg-white pt-6 duration-300 md-mt-32">
@@ -85,7 +92,7 @@ function Project() {
 
         <div className="mx-auto grid max-w-screen-xl grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
-            <div key={project._id} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div key={project._id} className="max-w-sm border border-gray-200 rounded-lg shadow bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
               <Link to={`/project/${project._id}`}>
                 <img
                   className="rounded-t-lg"
@@ -93,15 +100,15 @@ function Project() {
                   alt="images"
                 />
               </Link>
-              <div className="p-5">
+              <div className="p-5 cursor-pointer">
                 <Link to={`/project/${project._id}`}>
+                <h6 className=" mb-2 text-xl font-bold tracking-tight dark:text-amber-200  ">{project.subtitle}</h6>
                   <h5 className="hover:text-blue-700 mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    Tittle : {project.name}
+                    Tittle  :  <span className="text-indigo-500">{project.name}</span>
                   </h5>
                 </Link>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  Here are the biggest enterprise technology acquisitions of
-                  2021 so far, in reverse chronological order.
+                {truncateDescription(project.description,50)} <span className="text-violet-500">Read more</span>
                 </p>
                 <Link
                   to={`/project/${project._id}`}

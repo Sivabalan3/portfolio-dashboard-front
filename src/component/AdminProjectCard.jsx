@@ -77,6 +77,13 @@ function AdminProjectCard() {
       />
     );
   }
+  const truncateDescription=(description, wordLimit)=> {
+    const words = description.split(' ');
+    if (words.length <= wordLimit) {
+      return description;
+    }
+    return words.slice(0, wordLimit).join(' ') + '...';
+  }
   return (
     <>
       <section className="text-gray-600 body-font dark:bg-gray-900 bg-white pt-6 duration-300 md-mt-32">
@@ -92,16 +99,16 @@ function AdminProjectCard() {
               </Link>
               <div className="p-5">
                 <Link to={`/project/${project._id}`}>
+                  <h6 className=" mb-2 text-xl font-bold tracking-tight   text-purple-500">{project.subtitle}</h6>
                   <h5 className="hover:text-blue-700 mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     Tittle : {project.name}
                   </h5>
                 </Link>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  Here are the biggest enterprise technology acquisitions of
-                  2021 so far, in reverse chronological order.
+                {truncateDescription(project.description,50)} <span className="text-yellow-300">Read more</span>
                 </p>
                 <Link
-                  to={`/project/${project._id}`}
+                  to={`project/${project._id}`}
                   className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                   Read more

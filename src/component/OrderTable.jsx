@@ -38,7 +38,7 @@ const OrderTable = () => {
     } else {
       notification.error({
         message: "Error",
-        description: "Only admins can delete users..",
+        description: "You do not have permission to changes...",
       });
     }
   };

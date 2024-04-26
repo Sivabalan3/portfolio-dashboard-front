@@ -1,10 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { BASE_URL } from "../constant";
+import { BASE_URL,PROJECT_URL,UPLOAD_URL } from "../constant";
 import { notification } from "antd";
-
-export const PROJECT_URL = "/api/projects";
-export const UPLOAD_URL = "/api/upload";
 
 // Async actions
 export const getProjectById = createAsyncThunk(

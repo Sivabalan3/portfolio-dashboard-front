@@ -67,7 +67,7 @@ function App() {
           <Route path="/skils" element={<Skils />} />
           <Route path="/loginpage" element={<Login />} />
           <Route path="/project/:id" element={<ProjectDetailsTab />} />
-          {/* <Route path="project/update/:id" element={<ProjectUpdateForm />} /> */}
+          <Route path="project/update/:id" element={<ProjectUpdateForm />} />
           <Route path="project-create" element={<ProjectCreateform />} />
           <Route path="/register" element={<Registerform />} />
           <Route path="/userform" element={<Userform />} />
