@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams,useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../store/constant";
 import {
   getProjectById,
@@ -10,7 +10,7 @@ import {
 import { frameData } from "framer-motion";
 function ProjectUpdateForm() {
   const { id } = useParams();
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const projects = useSelector((state) => state.projects.getProjects.data);
   const project = projects.find((project) => project._id === id);
@@ -56,16 +56,16 @@ function ProjectUpdateForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateProject({ projectId: id, formData }));
-    setFormData("")
-    navigate('/Admindashboard/project-card');
+    setFormData("");
+    navigate("/Admindashboard/project-card");
   };
 
   return (
     <>
-     
-
       <div className="bg-white border-4 border-blue-500 rounded-lg shadow relative m-10 dark:bg-[#182235]">
-        <h1 className="text-center font-extrabold dark:text-white">Update Project Details</h1>
+        <h1 className="text-center font-extrabold dark:text-white">
+          Update Project Details
+        </h1>
         <div className="p-6 space-y-6">
           {image ? (
             <div className="text-center">
@@ -107,8 +107,8 @@ function ProjectUpdateForm() {
                     />
                   </svg>
                   <p className="mb-2 text-sm text-gray-500 dark:text-white">
-                    <span className="font-semibold">Click to upload</span> or drag
-                    and drop
+                    <span className="font-semibold">Click to upload</span> or
+                    drag and drop
                   </p>
                   <p className="text-xs text-gray-500 dark:text-white">
                     SVG, PNG, JPG or GIF (MAX. 800x400px)
@@ -191,7 +191,7 @@ function ProjectUpdateForm() {
                   value={formData.language}
                   onChange={handleChange}
                   className="dark:bg-gray-800 dark:text-white shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
-                  placeholder="$2300"
+                  placeholder="language's"
                   required=""
                 />
               </div>
@@ -214,7 +214,7 @@ function ProjectUpdateForm() {
 
               <div className="col-span-6 sm:col-span-3">
                 <label
-                htmlFor="livesite"
+                  htmlFor="livesite"
                   className="text-sm font-medium text-gray-900 block mb-2"
                 >
                   LiveSite
@@ -246,7 +246,7 @@ function ProjectUpdateForm() {
             </div>
             <div className="pt-4 border-t border-gray-200 rounded-b">
               <button
-                className="text-white bg-blue-500 hover:bg-blue-500 focus:ring-4 focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                className="text-white bg-indigo-500 hover:bg-indigo-600 focus:ring-4 focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                 type="submit"
               >
                 Update all

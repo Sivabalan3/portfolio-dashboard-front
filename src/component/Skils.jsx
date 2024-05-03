@@ -31,7 +31,7 @@ function Skils(){
         <p className=" text-sky-400 uppercase tracking-loose text-2xl py-1 font-bold">This Website Working Language</p>
         {/* <p className="text-xl md:text-xl leading-normal md:leading-relaxed mb-2 ps-1">Working Process</p> */}
         <p className=" dark:text-slate-100 md:text-base text-gray-800 mb-4 ">
-         My Website is a full stack Website,but because I don't have global server.I can't store data but localhost server only can store data in small distance.Therefore, So sorry guys &#128591;
+        The MERN stack is a popular full-stack development framework consisting of MongoDB, Express.js, React.js, and Node.js. MongoDB is a NoSQL database that stores data in a flexible, JSON-like format. Express.js is a back-end web application framework running on top of Node.js, which is a JavaScript runtime built on Chrome's V8 engine. React.js is a front-end library for building user interfaces. Together, these technologies provide a seamless way to build scalable and efficient web applications from front to back. The MERN stack leverages JavaScript on both the client and server side, promoting efficient and consistent coding practices.
         </p>
         <Link to="/pnf"
         className="bg-transparent mr-auto hover:bg-sky-500 text-sky-400 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-sky-400 hover:border-transparent">

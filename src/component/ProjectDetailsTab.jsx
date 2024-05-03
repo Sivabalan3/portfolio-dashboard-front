@@ -158,7 +158,7 @@ function ProjectDetailsTab() {
                         onClick={handleUpdateNavigate}
                         className="text-purple-700 flex hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900"
                       >
-                        <GrDocumentUpdate className="w-[20px] h-[20px] me-2 text-white" />{" "}
+                        <GrDocumentUpdate className="w-[20px] h-[20px] me-2 dark:text-white" />{" "}
                         Update
                       </button>
 
@@ -188,7 +188,7 @@ function ProjectDetailsTab() {
                 <div className="mt-5 p-4  bg-white border rounded-xl sm:mt-10 md:p-10 dark:bg-gray-900 dark:border-neutral-700">
                 <form onSubmit={submitReview}>
                     
-                    <div className="my-2">
+                    <div className="my-2 ">
                     <label htmlFor="rating" className="block text-xl mb-2">
                       Rating
                     </label>
@@ -198,7 +198,7 @@ function ProjectDetailsTab() {
                       required
                       value={rating}
                       onChange={(e) => setRating(e.target.value)}
-                      className="p-2 border rounded-lg xl:w-[40rem] text-black"
+                      className="p-2 border rounded-lg w-full text-black"
                     >
                       <option value="">Select</option>
                       <option value="1">Inferior</option>

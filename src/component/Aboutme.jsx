@@ -168,8 +168,8 @@ function Aboutme() {
                                 <div className="mb-4">
                                     <div data-aos="fade-left" data-aos-duration="1000" className="flex flex-col  text-lg dark:text-slate-200 text-slate-800">
                                         <h2><span className="font-semibold">Name : </span> Sivabalan M</h2>
-                                        <h2><span className="font-semibold">Age :</span> 20</h2>
-                                        <h2><span className="font-semibold">sex :</span> Male</h2>
+                                        <h2><span className="font-semibold">Age :</span> 21</h2>
+                                        <h2><span className="font-semibold">Gender :</span> Male</h2>
                                         <h2><span className="font-semibold">Gmail :</span> siva*********@gmail.com</h2>
                                         <h2><span className="font-semibold">phone :</span> 99******34</h2>
                                         <h2><span className="font-semibold">Job Required :</span> React js Developer</h2>
