@@ -195,11 +195,11 @@ function Loginform() {
                   </span>
                   <span className="relative invisible">Login</span>
                 </button>
-                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                <p className="text-sm font-light text-purple-500 dark:text-gray-400">
                   Don’t have an account yet?{" "}
                   <Link
                     to="/register"
-                    className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                    className="dark:text-white text-blue-500  underline-offset-2 underline font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
                     Sign up
                   </Link>

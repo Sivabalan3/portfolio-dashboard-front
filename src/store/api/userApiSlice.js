@@ -140,6 +140,41 @@ export const updateUserandAdmin = createAsyncThunk(
     }
   }
 );
+export const ProfileUpdate = createAsyncThunk(
+  "users/ProfileUpdate",
+  async ({ userId, updatedUserData }, { rejectWithValue }) => {
+    try {
+      const response = await axios.put(
+        `${BASE_URL}/api/users/profile/${userId}`,
+        updatedUserData
+      );
+
+      // Success notification
+      if (response.data.message) {
+        notification.success({
+          message: "Success",
+          description: response.data.message,
+        });
+      }
+
+      return response.data;
+    } catch (error) {
+      // Error notification
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        notification.error({
+          message: "Error",
+          description: error.response.data.message,
+        });
+      }
+
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
 export const deleteUserandAdmin = createAsyncThunk(
   "users/deleteUserandAdmin",
   async ({ userId, deletedUserData }, { rejectWithValue }) => {
@@ -175,6 +210,34 @@ export const deleteUserandAdmin = createAsyncThunk(
     }
   }
 );
+export const ProfileuploadImage = createAsyncThunk(
+  "users/ProfileuploadImage",
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`${BASE_URL}/api/uploads/profile`, data);
+
+      if (response.data.message) {
+        notification.success({
+          message: "Success",
+          description: response.data.message,
+        });
+      }
+      return response.data;
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        notification.error({
+          message: "Error",
+          description: error.response.data.message,
+        });
+      }
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
 
 const usersSlice = createSlice({
   name: "users",
@@ -185,6 +248,8 @@ const usersSlice = createSlice({
     getAllUsers: { data: [], loading: "idle", error: null },
     updateUserandAdmin: { data: [], loading: "idle", error: null },
     deleteUserandAdmin: { data: [], loading: "idle", error: null },
+    ProfileuploadImage:{ data: [], loading: "idle", error: null },
+    ProfileUpdate:{data: [], loading: "idle", error: null}
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -250,6 +315,37 @@ const usersSlice = createSlice({
       state.deleteUserandAdmin.error = action.error.message;
       state.deleteUserandAdmin.loading = "failed";
     });
+
+    //POST PROFILE UPLOAD IMAGE
+    builder.addCase(ProfileuploadImage.fulfilled, (state, action) => {
+      const { payload } = action;
+      state.projectImage = payload;
+    });
+    // builder.addCase(ProfileuploadImage.pending, (state) => {
+    //   state.ProfileuploadImage.loading = "loading";
+    // });
+    // builder.addCase(ProfileuploadImage.fulfilled, (state, action) => {
+    //   state.ProfileuploadImage.loading = "succeeded";
+    //   state.ProfileuploadImage.data = action.payload;
+    // });
+    // builder.addCase(ProfileuploadImage.rejected, (state, action) => {
+    //   state.ProfileuploadImage.loading = "failed";
+    //   state.ProfileuploadImage.error = action.error.message;
+    // });
+    
+
+    // POST PROFILE UPDATE 
+      builder.addCase( ProfileUpdate.pending, (state) => {
+       state. ProfileUpdate.loading = "loading";
+     });
+     builder.addCase( ProfileUpdate.fulfilled, (state, action) => {
+       state. ProfileUpdate.loading = "succeeded";
+     state. ProfileUpdate.data = action.payload;
+     });
+     builder.addCase( ProfileUpdate.rejected, (state, action) => {
+       state. ProfileUpdate.loading = "failed";
+     state. ProfileUpdate.error = action.error.message;
+     });
   },
 });
 

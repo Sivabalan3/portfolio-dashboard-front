@@ -139,6 +139,7 @@ function ProjectCreatehtmlForm() {
                   name="name"
                   className="dark:bg-gray-800 dark:text-white shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                   required=""
+                  placeholder="Title"
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
@@ -152,6 +153,7 @@ function ProjectCreatehtmlForm() {
                   name="subtitle"
                   className="dark:bg-gray-800 dark:text-white shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                   required=""
+                  placeholder="Sub Title"
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
@@ -191,7 +193,7 @@ function ProjectCreatehtmlForm() {
                   name="language"
               
                   className="dark:bg-gray-800 dark:text-white shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
-                  placeholder="$2300"
+                  placeholder="Language's"
                   required=""
                 />
               </div>
@@ -209,6 +211,7 @@ function ProjectCreatehtmlForm() {
                   name="githuburl"
                   className="dark:bg-gray-800 dark:text-white shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                   required=""
+                  placeholder="Github Url"
                 />
               </div>
 
@@ -226,6 +229,7 @@ function ProjectCreatehtmlForm() {
                   name="livesite"
                   className="dark:bg-gray-800 dark:text-white shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                   required=""
+                  placeholder="LiveSite Url"
                 />
               </div>
 
@@ -239,13 +243,13 @@ function ProjectCreatehtmlForm() {
                   name="description"
                   rows="6"
                   className="dark:bg-gray-800 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4"
-                  placeholder="Details"
+                  placeholder=" Decription"
                 ></textarea>
               </div>
             </div>
             <div className="pt-6 border-t border-gray-200 rounded-b">
               <button
-                className="text-white bg-blue-500 hover:bg-blue-500 focus:ring-4 focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                className="text-white bg-indigo-500 hover:bg-indigo-600 focus:ring-4 focus:ring-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                 type="submit"
               >
                 Save all

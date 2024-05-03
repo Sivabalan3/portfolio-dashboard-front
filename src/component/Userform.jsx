@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import user from "./myimgs/register.webp";
+// import user from "./myimgs/register.webp";
 import MySwal from "sweetalert2";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -259,10 +259,10 @@ function Userform() {
                     type="submit"
                     className="w-full px-5 py-2.5 relative rounded group font-medium text-white  inline-block"
                   >
-                    <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-sky-400 to-blue-500"></span>
+                    <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-indigo-400 to-blue-500"></span>
                     <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-purple-600 to-blue-500"></span>
                     <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-purple-600 to-blue-500"></span>
-                    <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-sky-600 from-blue-500"></span>
+                    <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-indigo-600 from-blue-500"></span>
                     <span className="relative">Submits</span>
                   </button>
                 </form>

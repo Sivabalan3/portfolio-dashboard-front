@@ -58,7 +58,7 @@ function Foterpage (){
       </div>
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
       <div className="sm:flex sm:items-center sm:justify-between mt-4">
-          <span className="text-sm  sm:text-center dtext-gray-400">© 2023 <a href="/" className="hover:underline">sivabalan™</a>. All Rights Reserved.
+          <span className="text-sm  sm:text-center dtext-gray-400">© 2024 <a href="/" className="hover:underline">sivabalan™</a>. All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
               <Link to="/pnf" className="hover:scale-[2.2] hover:text-gray-300 dark:hover:text-violet-500 text-white">
