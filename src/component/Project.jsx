@@ -7,6 +7,7 @@ import { getProjects } from "../store/projectstores/projectSlice";
 import { BASE_URL } from "../store/constant";
 import { FaArrowRight } from "react-icons/fa6";
 import { Dropdown, Button, Result, Skeleton } from "antd";
+import { BsBrowserChrome } from "react-icons/bs";
 
 function Project() {
   const dispatch = useDispatch();
@@ -76,13 +77,13 @@ function Project() {
       />
     );
   }
-  const truncateDescription=(description, wordLimit)=> {
-    const words = description.split(' ');
+  const truncateDescription = (description, wordLimit) => {
+    const words = description.split(" ");
     if (words.length <= wordLimit) {
       return description;
     }
-    return words.slice(0, wordLimit).join(' ') + '...';
-  }
+    return words.slice(0, wordLimit).join(" ") + "...";
+  };
   return (
     <>
       <section className="text-gray-600 body-font dark:bg-gray-900 bg-white pt-6 duration-300 md-mt-32">
@@ -92,7 +93,10 @@ function Project() {
 
         <div className="mx-auto grid max-w-screen-xl grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
-            <div key={project._id} className="max-w-sm border border-gray-200 rounded-lg shadow bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
+            <div
+              key={project._id}
+              className="max-w-sm border border-gray-200 rounded-lg shadow bg-gray-100 dark:bg-gray-800 dark:border-gray-700"
+            >
               <Link to={`/project/${project._id}`}>
                 <img
                   className="rounded-t-lg"
@@ -102,21 +106,38 @@ function Project() {
               </Link>
               <div className="p-5 cursor-pointer">
                 <Link to={`/project/${project._id}`}>
-                <h6 className=" mb-2 text-xl font-bold tracking-tight dark:text-amber-200  ">{project.subtitle}</h6>
+                  <h6 className=" mb-2 text-xl font-bold tracking-tight dark:text-amber-200  ">
+                    {project.subtitle}
+                  </h6>
                   <h5 className="hover:text-blue-700 mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    Tittle  :  <span className="text-indigo-500">{project.name}</span>
+                    Tittle :{" "}
+                    <span className="text-indigo-500">{project.name}</span>
                   </h5>
                 </Link>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                {truncateDescription(project.description,50)} <span className="text-violet-500">Read more</span>
+                  {truncateDescription(project.description, 50)}{" "}
+                  <span className="text-violet-500">Read more</span>
                 </p>
-                <Link
-                  to={`/project/${project._id}`}
-                  className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-indigo-800 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                >
-                  Read more
-                  <FaArrowRight className="w-4 h-4 ms-2" />
-                </Link>
+                <div className="flex justify-between">
+                  <Link to={`/project/${project._id}`}>
+                    <button
+                      type="button"
+                      className="py-2  text-white bg-[#3884f7] hover:bg-[#FF9119]/80 focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5  text-center inline-flex items-center dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 me-2 mb-2"
+                    >
+                      Read more <FaArrowRight className="w-4 h-4 ms-2" />
+                    </button>
+                  </Link>
+                  <Link  to={project.livesite} target="blank">
+                  <button
+                    type="button"
+                    className="py-2 mx-2  text-white bg-[#FF9119] hover:bg-[#FF9119]/80 focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5  text-center inline-flex items-center dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 me-2 mb-2"
+                  >
+                   <BsBrowserChrome className="w-5 h-5  mx-2"/>
+                   
+                    Live Site
+                  </button>
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
