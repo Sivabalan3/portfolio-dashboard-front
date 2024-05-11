@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { FaHandPointRight } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { FaLink } from "react-icons/fa";
 import { GrDocumentUpdate } from "react-icons/gr";
@@ -54,7 +55,7 @@ function ProjectDetailsTab() {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-900 py-8">
+    <div className="bg-white dark:bg-gray-900 py-[-4px]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-center font-bold text-2xl py-12 dark:text-white text-slate-500 underline underline-offset-2 decoration-indigo-600">Project Details</h1>
         {project ? (
@@ -104,15 +105,15 @@ function ProjectDetailsTab() {
                 </div>
               </div>
               <div className="md:flex-1 px-4">
-                <h2 className="text-2xl font-bold text-sky-500  mb-2">
+                <h2 className="text-3xl font-bold text-sky-500  mb-2">
                   Title : {project.name}
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-                  Sub Title : {project.subtitle}
+                <p className="text-gray-600 dark:text-emerald-300 text-lg mb-4">
+                 Sub Title : <span className="dark:text-white text-gray-600">{project.subtitle}</span>
                 </p>
                 <div className="flex mb-4">
                   <div className="mr-4">
-                    <span className="font-bold text-gray-700 dark:text-gray-300">
+                    <span className="font-bold text-gray-700 dark:text-fuchsia-300">
                       Start Date :
                     </span>
                     <span className="text-gray-600 dark:text-gray-300">
@@ -120,7 +121,7 @@ function ProjectDetailsTab() {
                     </span>
                   </div>
                   <div>
-                    <span className="font-bold text-gray-700 dark:text-gray-300">
+                    <span className="font-bold text-gray-700 dark:text-fuchsia-300">
                       End Date :
                     </span>
                     <span className="text-gray-600 dark:text-gray-300">
@@ -129,21 +130,21 @@ function ProjectDetailsTab() {
                   </div>
                 </div>
                 <div className="mb-4">
-                  <span className="font-bold text-gray-700 dark:text-gray-300">
-                    language:
+                  <span className="font-bold text-gray-700 dark:text-lime-300">
+                    language :
                   </span>
                   <div className="flex items-center mt-2">
-                    <span className="text-gray-600 dark:text-gray-300">
+                    <span className="text-gray-600 dark:text-white text-md">
                       {project.language}
                     </span>
                   </div>
                 </div>
 
                 <div>
-                  <span className="font-bold text-gray-700 dark:text-gray-300">
+                  <span className="font-bold text-gray-700 dark:text-pink-300">
                     Project Description:
                   </span>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
+                  <p className="text-gray-600 dark:text-gray-100 text-md mt-2 ">
                     {project.description}
                   </p>
                 </div>

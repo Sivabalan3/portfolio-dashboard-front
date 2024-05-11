@@ -170,8 +170,7 @@ function Aboutme() {
                                         <h2><span className="font-semibold">Name : </span> Sivabalan M</h2>
                                         <h2><span className="font-semibold">Age :</span> 21</h2>
                                         <h2><span className="font-semibold">Gender :</span> Male</h2>
-                                        <h2><span className="font-semibold">Gmail :</span> siva*********@gmail.com</h2>
-                                        <h2><span className="font-semibold">phone :</span> 99******34</h2>
+                                        <h2><span className="font-semibold">Gmail :</span> sivabalanm205@gmail.com</h2>
                                         <h2><span className="font-semibold">Job Required :</span> React js Developer</h2>
                                     </div>
                                   
@@ -184,10 +183,10 @@ function Aboutme() {
                                     </div>
                                     <div data-aos="fade-right" data-aos-duration="1000" className="text-slate-800 dark:text-slate-200 text-lg">
 
-                                        <h1><span className="font-semibold">College :</span> Bharath*****Engineering College</h1>
+                                        <h1><span className="font-semibold">College :</span> Bharath Niketan Engineering College</h1>
                                         <h2><span className="font-semibold">Cource :</span> Computer Science & Engineering</h2>
                                         <h2><span className="font-semibold">Batch :</span> 2020 - 2024</h2>
-                                        <h2><span className="font-semibold">School :</span> VM*****boys Government Higher Secondary School</h2>
+                                        <h2><span className="font-semibold">School :</span> VM boys Government Higher Secondary School</h2>
                                     </div>
                                     </div>
                                 </div>
