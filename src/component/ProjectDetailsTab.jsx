@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { FaLink } from "react-icons/fa";
@@ -7,7 +7,7 @@ import { MdAutoDelete } from "react-icons/md";
 import {
   deleteProject,
   updateProject,
-  createReview
+  createReview,
 } from "../store/projectstores/projectSlice";
 import { BASE_URL } from "../store/constant";
 function ProjectDetailsTab() {
@@ -24,11 +24,10 @@ function ProjectDetailsTab() {
   const project = projects.find((project) => project._id === id);
 
   const handleUpdateNavigate = () => {
-    if(userInfo.isAdmin){
-
+    if (userInfo.isAdmin) {
       navigate(`project/update/${project._id}`);
       // dispatch(updateProject({ projectId: id}));
-    }else{
+    } else {
       navigate(`project/update/${project._id}`);
     }
   };
@@ -38,30 +37,31 @@ function ProjectDetailsTab() {
 
   const submitReview = async (e) => {
     e.preventDefault();
-  
+
     try {
-      await dispatch(createReview({
-        
-        projectId: id, // replace with your actual project id
-        rating: rating,
-        comment: comment
-      })).unwrap();
-  
+      await dispatch(
+        createReview({
+          projectId: id, // replace with your actual project id
+          rating: rating,
+          comment: comment,
+        })
+      ).unwrap();
+
       alert("Review created successfully");
     } catch (err) {
       console.log(err.message);
     }
   };
-  
-  
+
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 py-8">
+    <div className="bg-white dark:bg-gray-900 py-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-center font-bold text-2xl py-12 dark:text-white text-slate-500 underline underline-offset-2 decoration-indigo-600">Project Details</h1>
         {project ? (
           <div>
             <div className="flex flex-col md:flex-row -mx-4">
               <div className="md:flex-1 px-4">
-                <div className="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
+                <div className="h-[460px] rounded-lg bg-white dark:bg-gray-700 mb-4 shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px]">
                   <img
                     className="w-full h-full object-contain"
                     src={BASE_URL + project.image}
@@ -186,62 +186,54 @@ function ProjectDetailsTab() {
 
                 {/* <!-- Card --> */}
                 <div className="mt-5 p-4  bg-white border rounded-xl sm:mt-10 md:p-10 dark:bg-gray-900 dark:border-neutral-700">
-                <form onSubmit={submitReview}>
-                    
+                  <form onSubmit={submitReview}>
                     <div className="my-2 ">
-                    <label htmlFor="rating" className="block text-xl mb-2">
-                      Rating
-                    </label>
-  
-                    <select
-                      id="rating"
-                      required
-                      value={rating}
-                      onChange={(e) => setRating(e.target.value)}
-                      className="p-2 border rounded-lg w-full text-black"
-                    >
-                      <option value="">Select</option>
-                      <option value="1">Inferior</option>
-                      <option value="2">Decent</option>
-                      <option value="3">Great</option>
-                      <option value="4">Excellent</option>
-                      <option value="5">Exceptional</option>
-                    </select>
-                  </div>
-                    
-  
-                      <div>
-                        <label
-                         
-                          className="block mb-2 text-sm font-medium dark:text-white"
-                        >
-                          Comment
-                        </label>
-                        <div className="mt-1">
-                          <textarea
-                         
-                         id="comment"
-                         rows="3"
-                         required
-                         value={comment}
-                            onChange={(e) => setComment(e.target.value)}
-                            className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                            placeholder="Leave your comment here..."
-                          ></textarea>
-                        </div>
+                      <label htmlFor="rating" className="block text-xl mb-2">
+                        Rating
+                      </label>
+
+                      <select
+                        id="rating"
+                        required
+                        value={rating}
+                        onChange={(e) => setRating(e.target.value)}
+                        className="p-2 border rounded-lg w-full text-black dark:bg-gray-900 dark:border-neutral-700 dark:text-white"
+                      >
+                        <option value="">Select</option>
+                        <option value="1">Inferior</option>
+                        <option value="2">Decent</option>
+                        <option value="3">Great</option>
+                        <option value="4">Excellent</option>
+                        <option value="5">Exceptional</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block mb-2 text-sm font-medium dark:text-white">
+                        Comment
+                      </label>
+                      <div className="mt-1">
+                        <textarea
+                          id="comment"
+                          rows="3"
+                          required
+                          value={comment}
+                          onChange={(e) => setComment(e.target.value)}
+                          className="dark:text-white py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-900 dark:border-neutral-700  dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                          placeholder="Leave your comment here..."
+                        ></textarea>
                       </div>
-  
-                      <div className="mt-6 grid">
-                        
-                        <button
-                          type="submit"
-                          className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-                        >
-                        
-                Submit
-                        </button>
-                      </div>
-                    </form>
+                    </div>
+
+                    <div className="mt-6 grid">
+                      <button
+                        type="submit"
+                        className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </form>
                 </div>
                 {/* <!-- End Card --> */}
               </div>
@@ -252,7 +244,6 @@ function ProjectDetailsTab() {
           <p>Project not found</p>
         )}
       </div>
-     
     </div>
   );
 }
