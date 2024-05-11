@@ -6,6 +6,7 @@ import {
   CheckCircleIcon,
 } from "@heroicons/react/24/outline";
 import { FaArrowCircleDown } from "react-icons/fa";
+import { GrInstagram } from "react-icons/gr";
 import { Link, useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -28,11 +29,7 @@ import tailwindcss from "../myimgs/swip/tailwindcss.png";
 import metrialui from "../myimgs/swip/metrailui.png";
 import msoffice from "../myimgs/swip/msoffice.png";
 import token from "../myimgs/swip/token.png";
-import nextjs from "../myimgs/swip/next.png";
-import calender from "../myimgs/calendar.svg";
-import girl from "../myimgs/girl.png";
-import ux from "../myimgs/ux-class.svg";
-import congrat from "../myimgs/congrat.svg";
+import nextjs from "../myimgs/swip/next.png";;
 import siva from "../myimgs/sivabalan1.png";
 import insta from "../myimgs/insta1.png";
 import whatsap from "../myimgs/whatsapp.png";
@@ -111,7 +108,7 @@ function Home() {
 
     {
       cls: "xl:py-8 xl:px-5 flex duration-300 flex-col p-6 mx-auto max-w-lg text-center text-gray-200 bg-gray-200  rounded-lg border border-sky-400 shadow dark:bg-gray-800 dark:text-white",
-      title: "Dynamic Website & Back End",
+      title: "Dynamic Website & Full Stack",
       subtitle: "Best option for personal use & for your next project.",
       price: "₹19999",
       developer: "6+ developer",
@@ -161,26 +158,18 @@ function Home() {
                 className="mt-12 w-full md:flex items-center justify-center lg:justify-start md:space-x-5"
               >
                 <Link to="/userform">
-                  <button className="lg:mx-0 bg-sky-500 text-white text-xl font-bold rounded-full py-4 px-9 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out">
+                  <button className="border-4 border-white lg:mx-0 bg-sky-500 text-white text-xl font-bold rounded-full py-2 px-9 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out">
                     Click here
                   </button>
                 </Link>
+                 <Link to="https://www.instagram.com/_sivabalan_/?next=%2Fsivabalanm205%2F" target="blank">
                 <div className="flex items-center justify-center space-x-3 mt-5 md:mt-0 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out">
                   <button className="bg-white w-14 h-14 rounded-full flex items-center justify-center">
-                    <svg
-                      className="w-5 h-5 ml-2"
-                      viewBox="0 0 24 28"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M22.5751 12.8097C23.2212 13.1983 23.2212 14.135 22.5751 14.5236L1.51538 27.1891C0.848878 27.5899 5.91205e-07 27.1099 6.25202e-07 26.3321L1.73245e-06 1.00123C1.76645e-06 0.223477 0.848877 -0.256572 1.51538 0.14427L22.5751 12.8097Z"
-                        fill="#23BDEE"
-                      />
-                    </svg>
+                  <GrInstagram className="w-8 h-8 text-center text-red-500"/>
                   </button>
-                  <span className="cursor-pointer">Instagram</span>
+                  <span className="cursor-pointer dark:text-slate-200 text-pink-500 font-semibold md:text-lg">Instagram</span>
                 </div>
+                  </Link>
               </div>
             </div>
             {/* <!--Right Col--> */}
