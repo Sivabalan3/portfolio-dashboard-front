@@ -9,6 +9,7 @@ import { FaArrowCircleDown } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "./Home.css";
 import Project from "./Project";
 import htmls from "../myimgs/swip/html.png";
 import css from "../myimgs/swip/css.png";
@@ -28,6 +29,15 @@ import metrialui from "../myimgs/swip/metrailui.png";
 import msoffice from "../myimgs/swip/msoffice.png";
 import token from "../myimgs/swip/token.png";
 import nextjs from "../myimgs/swip/next.png";
+import calender from "../myimgs/calendar.svg";
+import girl from "../myimgs/girl.png";
+import ux from "../myimgs/ux-class.svg";
+import congrat from "../myimgs/congrat.svg";
+import siva from "../myimgs/sivabalan1.png";
+import insta from "../myimgs/insta1.png";
+import whatsap from "../myimgs/whatsapp.png";
+import develop from "../myimgs/develop.png";
+import code from "../myimgs/code.png";
 
 import photoshop from "../myimgs/swip/photoshop.png";
 import Homeimg from "../myimgs/home.jpg";
@@ -118,132 +128,137 @@ function Home() {
     <>
       {/* NEW   CREATING   */}
       <main>
-        <div className="relative">
-          <img
-            src={Homeimg}
-            className="absolute inset-0 object-cover w-full h-full"
-            alt="img"
-          />
-          <div className="relative bg-opacity-75 bg-deep-purple-accent-700">
-            <svg
-              className="absolute inset-x-0 bottom-[-0.5px] text-white dark:text-gray-900  "
-              viewBox="0 0 1160 163"
-            >
-              <path
-                fill="currentColor"
-                d="M-164 13L-104 39.7C-44 66 76 120 196 141C316 162 436 152 556 119.7C676 88 796 34 916 13C1036 -8 1156 2 1216 7.7L1276 13V162.5H1216C1156 162.5 1036 162.5 916 162.5C796 162.5 676 162.5 556 162.5C436 162.5 316 162.5 196 162.5C76 162.5 -44 162.5 -104 162.5H-164V13Z"
-              />
-            </svg>
-            <div className="relative px-4 py-16 mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-              <div className="flex flex-col items-center justify-between xl:flex-row">
-                <div className="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
-                  <h1 className="max-w-lg mb-4 font-sans text-[40px] font-bold tracking-tight text-white sm:text-[70px] sm:leading-none">
-                    <span className="bg-clip-text bg-gradient-to-tl from-blue-500 to-sky-400 text-transparent  text-[40px]  sm:text-[70px]">
-                      Hi i'm
-                    </span>{" "}
-                    Sivabalan
-                  </h1>
-                  <h1 className="text-white text-2xl sm:text-4xl mb-3">
-                    <Typewriter
-                      words={["UI/UX Designer ", "React Js Developer "]}
-                      loop={0}
-                      typeSpeed={200}
-                      deleteSpeed={150}
-                      delaySpeed={100}
-                      cursor
-                    ></Typewriter>
-                  </h1>
-                  <p className="text-white text-xl">
-                    If you need to create a website fill the link below
-                  </p>
-
-                  <button className="mt-4 inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700">
-                    <Link
-                      to="/userform"
-                      className=" relative inline-flex items-center justify-center p-2 py-1 md:p-4 md:px-6 md:py-1.5  overflow-hidden font-medium text-slate-200 transition duration-300 ease-out border-2 border-sky-500 rounded-full shadow-md group"
-                    >
-                      <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-sky-500 group-hover:translate-x-0 ease">
-                        <ChevronDoubleDownIcon className="w-6 h-6" />
-                      </span>
-                      <span className="text-xs md:text-md absolute flex items-center justify-center w-full h-full texslatet2-200 transition-all duration-300 transform group-hover:translate-x-full ease">
-                        Click here
-                      </span>
-                      <span className="text-xs md:text-md p-1 relative invisible">
-                        Click here
-                      </span>
-                    </Link>
+        <div className="bg-cream dar ">
+          <div className="max-w-screen-xl px-8 mx-auto flex flex-col lg:flex-row items-start">
+            {/* <!--Left Col--> */}
+            <div className="flex flex-col w-full lg:w-6/12 justify-center lg:pt-24 items-start text-center lg:text-left mb-5 md:mb-0">
+              <h1
+                data-aos="fade-right"
+                data-aos-once="true"
+                className="my-4 text-5xl font-bold leading-tight dark:text-white"
+              >
+                <span className="text-sky-500">Hi</span> I'm Sivabalan
+              </h1>
+              <p
+                data-aos="fade-down"
+                data-aos-once="true"
+                data-aos-delay="300"
+                className="leading-normal text-2xl mb-8 dark:text-slate-200"
+              >
+                <Typewriter
+                  words={["UI/UX Designer & React Js Developer "]}
+                  loop={0}
+                  typeSpeed={200}
+                  deleteSpeed={150}
+                  delaySpeed={100}
+                  cursor
+                ></Typewriter>
+              </p>
+              <div
+                data-aos="fade-up"
+                data-aos-once="true"
+                data-aos-delay="700"
+                className="mt-12 w-full md:flex items-center justify-center lg:justify-start md:space-x-5"
+              >
+                <Link to="/userform">
+                  <button className="lg:mx-0 bg-sky-500 text-white text-xl font-bold rounded-full py-4 px-9 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out">
+                    Click here
                   </button>
-                </div>
-                <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
-                  <div className="bg-white rounded shadow-2xl p-7 sm:p-10 ">
-                    <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
-                      Sign up for updates
-                    </h3>
-                    <form>
-                      <div className="mb-1 sm:mb-2">
-                        <label
-                          htmlFor="firstName"
-                          className="inline-block mb-1 font-medium"
-                        >
-                          First name
-                        </label>
-                        <input
-                          placeholder="John"
-                          required
-                          type="text"
-                          className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                          id="firstName"
-                          name="firstName"
-                        />
-                      </div>
-                      <div className="mb-1 sm:mb-2">
-                        <label
-                          htmlFor="lastName"
-                          className="inline-block mb-1 font-medium"
-                        >
-                          Last name
-                        </label>
-                        <input
-                          placeholder="Doe"
-                          required
-                          type="text"
-                          className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                          id="lastName"
-                          name="lastName"
-                        />
-                      </div>
-                      <div className="mb-1 sm:mb-2">
-                        <label
-                          htmlFor="email"
-                          className="inline-block mb-1 font-medium"
-                        >
-                          E-mail
-                        </label>
-                        <input
-                          placeholder="john.doe@example.org"
-                          required
-                          type="text"
-                          className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                          id="email"
-                          name="email"
-                        />
-                      </div>
-                      <div className="mt-4 mb-2 sm:mb-4">
-                        <button
-                          type="submit"
-                          className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                        >
-                          Subscribe
-                        </button>
-                      </div>
-                      <p className="text-xs text-gray-600 sm:text-sm">
-                        We respect your privacy. Unsubscribe at any time.
-                      </p>
-                    </form>
-                  </div>
+                </Link>
+                <div className="flex items-center justify-center space-x-3 mt-5 md:mt-0 focus:outline-none transform transition hover:scale-110 duration-300 ease-in-out">
+                  <button className="bg-white w-14 h-14 rounded-full flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5 ml-2"
+                      viewBox="0 0 24 28"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M22.5751 12.8097C23.2212 13.1983 23.2212 14.135 22.5751 14.5236L1.51538 27.1891C0.848878 27.5899 5.91205e-07 27.1099 6.25202e-07 26.3321L1.73245e-06 1.00123C1.76645e-06 0.223477 0.848877 -0.256572 1.51538 0.14427L22.5751 12.8097Z"
+                        fill="#23BDEE"
+                      />
+                    </svg>
+                  </button>
+                  <span className="cursor-pointer">Instagram</span>
                 </div>
               </div>
             </div>
+            {/* <!--Right Col--> */}
+            <div className="w-full lg:w-6/12 lg:- relative" id="girl">
+              <img
+                data-aos="fade-up"
+                data-aos-once="true"
+                className="w-10/12 mx-auto 2xl:-mb-20"
+                src={siva}
+                alt="image"
+              />
+              {/* <!-- calendar --> */}
+              <div
+                data-aos="fade-up"
+                data-aos-delay="300"
+                data-aos-once="true"
+                className="absolute top-20 -left-6 sm:top-32 sm:left-10 md:top-40 md:left-16 lg:-left-0 lg:top-52 floating-4"
+              >
+                <img
+                  className="w-24 h-20 bg-opacity-80 rounded-lg sm:h-16"
+                  src={code}
+                  alt="image"
+                />
+              </div>
+              {/* <!-- red --> */}
+              <div
+                data-aos="fade-up"
+                data-aos-delay="400"
+                data-aos-once="true"
+                className="absolute top-20 right-10 sm:right-24 sm:top-28 md:top-36 md:right-32 lg:top-32 lg:right-16 floating"
+              >
+                <img
+                  className="w-18  bg-opacity-80 rounded-lg h-24 sm:h-16"
+                  src={insta}
+                  alt="image"
+                />
+              </div>
+              {/* <!-- ux class --> */}
+              <div
+                data-aos="fade-up"
+                data-aos-delay="500"
+                data-aos-once="true"
+                className="absolute bottom-14 -left-4 sm:left-2 sm:bottom-20 lg:bottom-24 lg:-left-4 floating"
+              >
+                <img
+                  className=" bg-opacity-80 rounded-lg h-20 sm:h-28"
+                  src={develop}
+                  alt="image"
+                />
+              </div>
+              {/* <!-- congrats --> */}
+              <div
+                data-aos="fade-up"
+                data-aos-delay="600"
+                data-aos-once="true"
+                className="absolute bottom-20 md:bottom-48 lg:bottom-52 -right-6 lg:right-8 floating-4"
+              >
+                <img
+                  className="bg-opacity-80 rounded-lg h-12 sm:h-16"
+                  src={whatsap}
+                  alt="image"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="text-white z-40 ">
+            <svg
+              className="xl:h-40 xl:w-full dark:hidden"
+              data-name="Layer 1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1200 120"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z"
+                fill="currentColor"
+              ></path>
+            </svg>
           </div>
         </div>
 

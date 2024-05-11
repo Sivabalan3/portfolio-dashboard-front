@@ -103,7 +103,7 @@ const Profile = () => {
         <div className="lg:w-[80%] md:w-[90%] xs:w-[96%] mx-auto flex gap-4">
           <div className="lg:w-[88%] md:w-[80%] sm:w-[88%] xs:w-full mx-auto shadow-2xl p-4 rounded-xl h-fit self-center dark:bg-gray-800/40">
             <div className="">
-              <h1 className="text-center lg:text-3xl md:text-2xl sm:text-xl xs:text-xl  font-extrabold mb-2 dark:text-white">
+              <h1 className="text-center lg:text-3xl md:text-2xl sm:text-xl xs:text-xl  font-extrabold mb-2 dark:text-indigo-500">
                 {username+"\t"}Profile
               </h1>
               <h2 className="text-center text-grey text-sm mb-4 dark:text-gray-400">

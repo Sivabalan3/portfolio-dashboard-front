@@ -61,7 +61,7 @@ export const InfiniteMovingCards = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller   max-w-7xl overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller   max-w-7xl overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)] shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px]",
         className
       )}
     >
@@ -90,7 +90,7 @@ export const InfiniteMovingCards = ({
               ></div>
               <div className="flex  flex-col justify-center items-center">
 
-             <img src={item.img} alt="images" className={`${item.cls}  md:w-[200px] md:h-[200px] w-[150px] h-[150px]`}/>
+             <img src={item.img} alt="images" className={`${item.cls}  md:w-[200px] md:h-[200px] w-[150px] h-[150px] `}/>
              <h4 className="my-6 dark:text-white font-bold text-gray-500 md:text-[25px]">{item.name}</h4>
               </div>
             </blockquote>
