@@ -42,6 +42,13 @@ const OrderTable = () => {
       });
     }
   };
+  if (loading === "loading") {
+    return <div>Loading...</div>;
+  }
+
+  if (loading === "failed") {
+    return <div>Error: {error}</div>;
+  }
   return (
     <>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg mb-24 mt-12">

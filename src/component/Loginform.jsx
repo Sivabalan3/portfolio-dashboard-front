@@ -199,7 +199,7 @@ function Loginform() {
                   Don’t have an account yet?{" "}
                   <Link
                     to="/register"
-                    className="dark:text-white text-blue-500  underline-offset-2 underline font-medium text-primary-600 hover:underline dark:text-primary-500"
+                    className="text-lg dark:hover:text-sky-400 dark:text-white text-indigo-500  underline-offset-2 underline font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
                     Sign up
                   </Link>

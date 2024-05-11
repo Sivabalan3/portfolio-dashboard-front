@@ -239,8 +239,10 @@ function ProjectDetailsTab() {
                 {/* <!-- End Card --> */}
               </div>
             </div>
+            
             {/* <!-- End Comment Form --> */}
           </div>
+          
         ) : (
           <p>Project not found</p>
         )}

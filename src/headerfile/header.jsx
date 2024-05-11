@@ -145,7 +145,7 @@ function Header() {
               </div>
                 
           </div>
-          <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} />
+          <motion.div className="progress-bar " style={{ scaleX: scrollYProgress }} />
         </nav>
 
       </header>
