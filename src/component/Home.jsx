@@ -30,11 +30,11 @@ import metrialui from "../myimgs/swip/metrailui.png";
 import msoffice from "../myimgs/swip/msoffice.png";
 import token from "../myimgs/swip/token.png";
 import nextjs from "../myimgs/swip/next.png";;
-import siva from "../myimgs/sivabalan1.png";
-import insta from "../myimgs/insta1.png";
-import whatsap from "../myimgs/whatsapp.png";
-import develop from "../myimgs/develop.png";
-import code from "../myimgs/code.png";
+import siva from "../myimgs/sivabalan1.webp";
+import insta from "../myimgs/insta1.webp";
+import whatsap from "../myimgs/whatsapp.webp";
+import develop from "../myimgs/develop.webp";
+import code from "../myimgs/code.webp";
 
 import photoshop from "../myimgs/swip/photoshop.png";
 import Homeimg from "../myimgs/home.jpg";
@@ -201,11 +201,12 @@ function Home() {
                 data-aos-once="true"
                 className="absolute top-20 right-10 sm:right-24 sm:top-28 md:top-36 md:right-32 lg:top-32 lg:right-16 floating"
               >
+                 <Link to="https://www.instagram.com/_sivabalan_/?next=%2Fsivabalanm205%2F" target="blank">
                 <img
-                  className="w-18  bg-opacity-80 rounded-lg h-24 sm:h-16"
+                  className="md:w-18 md:h-18   bg-opacity-80 rounded-lg  h-16 w-16"
                   src={insta}
                   alt="image"
-                />
+                /></Link>
               </div>
               {/* <!-- ux class --> */}
               <div
