@@ -4,7 +4,9 @@ import {
   getAllUsers,
   updateUserandAdmin,
   deleteUserandAdmin,
+  
 } from "../store/api/userApiSlice";
+import "./styles/loder.css";
 import { notification } from "antd";
 import { MdAutoDelete } from "react-icons/md";
 
@@ -22,7 +24,12 @@ function AdminEdit() {
   }, [dispatch]);
 
   if (loading === "loading") {
-    return <div>Loading...</div>;
+    return <div className="cube">
+    <div className="cube_item cube_x"></div>
+    <div className="cube_item cube_y"></div>
+    <div className="cube_item cube_y"></div>
+    <div className="cube_item cube_x"></div>
+  </div>;
   }
 
   if (loading === "failed") {
