@@ -90,7 +90,7 @@ export const InfiniteMovingCards = ({
               ></div>
               <div className="flex  flex-col justify-center items-center">
 
-             <img src={item.img} alt="images" className={`${item.cls}  md:w-[200px] md:h-[200px] w-[150px] h-[150px] `}/>
+             <img src={item.img} alt="images" className={`${item.cls}  md:w-[200px] md:h-[200px] w-[150px] h-[150px] `} loading="lazy"/>
              <h4 className="my-6 dark:text-white font-bold text-gray-500 md:text-[25px]">{item.name}</h4>
               </div>
             </blockquote>

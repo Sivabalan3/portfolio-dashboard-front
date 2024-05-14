@@ -17,46 +17,14 @@ function Project() {
     loading,
     error,
   } = useSelector((state) => state.projects.getProjects);
-  const [showSkeleton, setShowSkeleton] = useState(false);
-
-  useEffect(() => {
-    if (loading) {
-      setShowSkeleton(true);
-      setTimeout(() => {
-        setShowSkeleton(false);
-      }, 3000); // 3 seconds
-    }
-  }, [loading]);
 
   // console.log("hdhfdf",projects.image)
   useEffect(() => {
     dispatch(getProjects());
   }, [dispatch]);
 
-  const items = [
-    {
-      key: "1",
-      label: <button>Delete</button>,
-    },
-    {
-      key: "2",
-      label: <button>Update</button>,
-    },
-    {
-      key: "3",
-      label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
-          3rd menu item
-        </a>
-      ),
-    },
-  ];
 
-  if (showSkeleton) {
+  if (loading) {
     return (
       <div className="cube">
         <div className="cube_item cube_x"></div>
@@ -102,6 +70,7 @@ function Project() {
                   className="rounded-t-lg"
                   src={BASE_URL + project.image}
                   alt="images"
+                  loading="lazy"
                 />
               </Link>
               <div className="p-5 cursor-pointer">
