@@ -139,7 +139,7 @@ function Header() {
                   </li>
                  <li className="active">
                    <NavLink onClick={CloseSideDrawer} to="/loginpage" className="text-lg font-bold py-2 pl-3 pr-4  rounded  md:hover:bg-transparent md:hover:text-sky-400 md:p-0 text-white md:dark:hover:text-sky-400 dark:hover:bg-gray-700  md:dark:hover:bg-transparent dark:border-gray-700 flex items-center gap-1">
-                     <LockClosedIcon className=" w-6 h-6" />Admin</NavLink>
+                     <LockClosedIcon className=" w-6 h-6 " />Login</NavLink>
                   </li>
                </ul>
               </div>

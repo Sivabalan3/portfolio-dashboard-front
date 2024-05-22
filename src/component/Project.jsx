@@ -23,14 +23,18 @@ function Project() {
     dispatch(getProjects());
   }, [dispatch]);
 
-
   if (loading) {
     return (
-      <div className="cube">
-        <div className="cube_item cube_x"></div>
-        <div className="cube_item cube_y"></div>
-        <div className="cube_item cube_y"></div>
-        <div className="cube_item cube_x"></div>
+      <div className="spinnerContainer">
+        <div className="spinner"></div>
+        <div className="loader">
+          <p className="dark:text-white text-slate-800">loading</p>
+          <div className="words">
+            <span className="word">PROJECTS</span>
+            <span className="word">Please Wait</span>
+            <span className="word">Take a minute</span>
+          </div>
+        </div>
       </div>
     );
   }
@@ -96,15 +100,14 @@ function Project() {
                       Read more <FaArrowRight className="w-4 h-4 ms-2" />
                     </button>
                   </Link>
-                  <Link  to={project.livesite} target="blank">
-                  <button
-                    type="button"
-                    className="py-2 mx-2  text-white bg-[#FF9119] hover:bg-[#FF9119]/80 focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5  text-center inline-flex items-center dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 me-2 mb-2"
-                  >
-                   <BsBrowserChrome className="w-5 h-5  mx-2"/>
-                   
-                    Live Site
-                  </button>
+                  <Link to={project.livesite} target="blank">
+                    <button
+                      type="button"
+                      className="py-2 mx-2  text-white bg-[#FF9119] hover:bg-[#FF9119]/80 focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5  text-center inline-flex items-center dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 me-2 mb-2"
+                    >
+                      <BsBrowserChrome className="w-5 h-5  mx-2" />
+                      Live Site
+                    </button>
                   </Link>
                 </div>
               </div>
