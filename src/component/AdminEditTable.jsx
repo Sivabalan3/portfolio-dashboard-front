@@ -4,7 +4,6 @@ import {
   getAllUsers,
   updateUserandAdmin,
   deleteUserandAdmin,
-  
 } from "../store/api/userApiSlice";
 import "./styles/loder.css";
 import { notification } from "antd";
@@ -24,12 +23,14 @@ function AdminEdit() {
   }, [dispatch]);
 
   if (loading === "loading") {
-    return <div className="cube">
-    <div className="cube_item cube_x"></div>
-    <div className="cube_item cube_y"></div>
-    <div className="cube_item cube_y"></div>
-    <div className="cube_item cube_x"></div>
-  </div>;
+    return (
+      <div className="cube">
+        <div className="cube_item cube_x"></div>
+        <div className="cube_item cube_y"></div>
+        <div className="cube_item cube_y"></div>
+        <div className="cube_item cube_x"></div>
+      </div>
+    );
   }
 
   if (loading === "failed") {
@@ -128,21 +129,31 @@ function AdminEdit() {
                 <td className="px-6 py-4 text-fuchsia-500">{user.email}</td>
                 <td className="px-6 py-4">
                   <div className="flex items-center">
-                    <div className={user.isAdmin===false?"h-2.5 w-2.5 rounded-full bg-red-500 me-2":""}></div>
-                    User
-
                     <label className="inline-flex items-center me-5 cursor-pointer ps-6">
-                      <input
-                        type="checkbox"
-                        checked={user.isAdmin}
-                        onChange={() => handleToggleIsAdmin(user)}
-                        className="sr-only peer"
-                      />
-
-                      <div className="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-purple-300 dark:peer-focus:ring-purple-800 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-purple-600"></div>
-                      <span className={user.isAdmin===false?"ms-3 text-sm font-medium text-gray-900 dark:text-gray-300":"ms-3 text-sm font-medium text-gray-900 dark:text-green-500"}>
-                        Admin
-                      </span>
+                      <label className="themeSwitcherTwo shadow-card relative inline-flex cursor-pointer select-none items-center justify-center rounded-md darK:bg-white p-1 bg-gray-200">
+                        <input
+                          type="checkbox"
+                          className="sr-only"
+                          checked={user.isAdmin}
+                          onChange={() => handleToggleIsAdmin(user)}
+                        />
+                        <span
+                          className={`flex items-center space-x-[6px] rounded py-2 px-[18px] text-sm font-medium 
+          ${user.isAdmin ? "text-slate-700" : "bg-red-500 dark:text-white "}
+          `}
+                        >
+                          User
+                        </span>
+                        <span
+                          className={`flex items-center space-x-[6px] rounded py-2 px-[18px] text-sm font-medium ${
+                            user.isAdmin
+                              ? " bg-green-500 dark:text-white"
+                              : "dark:text-slate-700"
+                          }`}
+                        >
+                          Admin
+                        </span>
+                      </label>
                     </label>
                   </div>
                 </td>
@@ -167,7 +178,7 @@ function AdminEdit() {
                     type="button"
                     className="flex  gap-1 text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900"
                   >
-                    <MdAutoDelete className="w-5 h-5 mt-1"/>
+                    <MdAutoDelete className="w-5 h-5 mt-1" />
                     Delete
                   </button>
                 </td>
