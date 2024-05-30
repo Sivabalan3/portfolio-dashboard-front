@@ -1,11 +1,12 @@
 
-.spinnerContainer {
+.spinnerContainer1 {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 
-.spinner {
+.spinner1 {
   width: 56px;
   height: 56px;
   display: grid;
@@ -15,8 +16,8 @@
   animation: tri-spinner 1s infinite linear;
 }
 
-.spinner::before,
-.spinner::after {
+.spinner1::before,
+.spinner1::after {
   content: "";
   grid-area: 1/1;
   margin: 2px;
@@ -25,7 +26,7 @@
   animation: tri-spinner 2s infinite;
 }
 
-.spinner::after {
+.spinner1::after {
   margin: 8px;
   animation-duration: 3s;
 }
@@ -36,7 +37,7 @@
   }
 }
 
-.loader {
+.loader1 {
   color: #4a4a4a;
   font-family: "Poppins",sans-serif;
   font-weight: 500;
@@ -51,11 +52,11 @@
   border-radius: 8px;
 }
 
-.words {
+.words1 {
   overflow: hidden;
 }
 
-.word {
+.word1 {
   display: block;
   height: 100%;
   padding-left: 6px;

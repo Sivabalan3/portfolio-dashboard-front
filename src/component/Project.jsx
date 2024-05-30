@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getProjects } from "../store/projectstores/projectSlice";
 import { BASE_URL } from "../store/constant";
 import { FaArrowRight } from "react-icons/fa6";
-import { Dropdown, Button, Result, Skeleton } from "antd";
+import { Button, Result } from "antd";
 import { BsBrowserChrome } from "react-icons/bs";
 
 function Project() {
@@ -25,14 +25,14 @@ function Project() {
 
   if (loading) {
     return (
-      <div className="spinnerContainer">
-        <div className="spinner"></div>
-        <div className="loader">
+      <div className="spinnerContainer1">
+        <div className="spinner1"></div>
+        <div className="loader1">
           <p className="dark:text-white text-slate-800">loading</p>
-          <div className="words">
-            <span className="word">PROJECTS</span>
-            <span className="word">Please Wait</span>
-            <span className="word">Take a minute</span>
+          <div className="words1">
+            <span className="word1">PROJECTS</span>
+            <span className="word1">Please Wait</span>
+            <span className="word1">Take a minute</span>
           </div>
         </div>
       </div>

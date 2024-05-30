@@ -29,11 +29,16 @@ function AdminProjectCard() {
 
   if (loading) {
     return (
-      <div className="cube">
-        <div className="cube_item cube_x"></div>
-        <div className="cube_item cube_y"></div>
-        <div className="cube_item cube_y"></div>
-        <div className="cube_item cube_x"></div>
+      <div className="spinnerContainer1">
+        <div className="spinner1"></div>
+        <div className="loader1">
+          <p className="dark:text-white text-slate-800">loading</p>
+          <div className="words1">
+            <span className="word1">PROJECTS</span>
+            <span className="word1">Please Wait</span>
+            <span className="word1">Take a minute</span>
+          </div>
+        </div>
       </div>
     );
   }
